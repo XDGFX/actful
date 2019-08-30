@@ -1,0 +1,114 @@
+var products = {
+  "toothbrush": {
+    "product1": {
+      "name": "b",
+      "tags": "d",
+      "desc": "f",
+      "image_url": "g"
+    },
+    "product2": {
+      "name": "r",
+      "tags": "rg",
+      "desc": "s",
+      "image_url": "verv"
+    }
+  },
+  "soap": {
+    "product3": {
+      "name": "b",
+      "tags": "d",
+      "desc": "f",
+      "image_url": "g"
+    },
+    "product4": {
+      "name": "r",
+      "tags": "rg",
+      "desc": "s",
+      "image_url": "verv"
+    }
+  },
+  "toothpaste": {
+    "product3": {
+      "name": "b",
+      "tags": "d",
+      "desc": "f",
+      "image_url": "g"
+    },
+    "product4": {
+      "name": "r",
+      "tags": "rg",
+      "desc": "s",
+      "image_url": "verv"
+    }
+  },
+  "shower gel": {
+    "product3": {
+      "name": "b",
+      "tags": "d",
+      "desc": "f",
+      "image_url": "g"
+    },
+    "product4": {
+      "name": "r",
+      "tags": "rg",
+      "desc": "s",
+      "image_url": "verv"
+    }
+  },
+  "internet": {
+    "product1": {
+      "name": "b",
+      "tags": "d",
+      "desc": "f",
+      "image_url": "g"
+    },
+    "product2": {
+      "name": "r",
+      "tags": "rg",
+      "desc": "s",
+      "image_url": "verv"
+    }
+  },
+  "energy provider": {
+    "product3": {
+      "name": "b",
+      "tags": "d",
+      "desc": "f",
+      "image_url": "g"
+    },
+    "product4": {
+      "name": "r",
+      "tags": "rg",
+      "desc": "s",
+      "image_url": "verv"
+    }
+  },
+  "mobile phone": {
+    "product3": {
+      "name": "b",
+      "tags": "d",
+      "desc": "f",
+      "image_url": "g"
+    },
+    "product4": {
+      "name": "r",
+      "tags": "rg",
+      "desc": "s",
+      "image_url": "verv"
+    }
+  },
+  "phone contract": {
+    "product3": {
+      "name": "b",
+      "tags": "d",
+      "desc": "f",
+      "image_url": "g"
+    },
+    "product4": {
+      "name": "r",
+      "tags": "rg",
+      "desc": "s",
+      "image_url": "verv"
+    }
+  }
+};

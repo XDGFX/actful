@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>actful - alternative products for a better world</title>
+
+  <!-- Scripts for style, CSS, etc -->
+  <link rel="stylesheet" href="bulma.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Custom font for title -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+
+  <!-- Custom selection colours... oooh fancy! -->
+  <style> ::-moz-selection { /* Code for Firefox */
+    color: white;
+    background: #00d1b2;
+  }
+
+  ::selection {
+    color: white;
+    background: #00d1b2;
+  }
+
+  a:link {
+    color: hsl(0, 0%, 21%);
+  }
+
+  a:visited {
+    color: grey;
+  }
+
+  a:hover {
+    color: #00d1b2;
+  }
+
+
+
+  </style>
+
+
+</head>
+
+<body>
+  <section class="section">
+    <div class="container">
+
+      <!-- Title -->
+      <h1 style="font-family: 'Montserrat', sans-serif; font-weight: bold; font-size: 1000%; text-align: center; padding-top: 10%">
+        actful<font color="#00d1b2">.</font></h1>
+
+        <!-- Subtitle -->
+        <p class="subtitle" style="text-align: center; margin-top: -3%; margin-bottom: 3%;">
+          alternative products which promote a <strong>sustainable</strong> future for all.
+        </p>
+
+        <!-- Search -->
+        <div class="container" style="max-width: 600px;">
+          <div class="control has-icons-left">
+            <input class="input" id="search-string" placeholder="search for a product...">
+            <span class="icon is-small is-left">
+              <i class="fas fa-search"></i>
+            </span>
+
+          </div>
+        </div>
+
+        <!-- Search results -->
+
+        <div class="container" style="max-width: 500px;">
+          <br>
+          <ul id="list" style="font-size:18px"></ul>
+        </div>
+
+        <ul>
+
+
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+          <script>
+          $(document).ready(function(){
+            document.getElementById("list").style.display = "block";
+            $("#list li").hide();
+            $("#search-string").on("keyup", function() {
+              var value = $(this).val().toLowerCase();
+
+              $("#list li").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+              });
+
+              if(value.length == 0) {
+                $("#list li").hide();
+              }
+            });
+          });
+          </script>
+
+          <script type="text/javascript" src="products.json"></script>
+
+          <script>
+          var keys = Object.keys(products);
+          var output = "";
+          for (i in keys) {
+            output = output + "<li> <a href=\"products.htm?" + encodeURIComponent(keys[i]).replace('%20','+') + "\"</a>" + keys[i] + "</li>";
+          }
+          document.getElementById("list").style.display = "none";
+          document.getElementById("list").innerHTML = output;
+          </script>
+
+        </div>
+
+      </section>
+
+    </body>
+
+    </html>
