@@ -13,7 +13,8 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
 
   <!-- Custom selection colours... oooh fancy! -->
-  <style> ::-moz-selection { /* Code for Firefox */
+  <style>
+  ::-moz-selection { /* Code for Firefox */
     color: white;
     background: #00d1b2;
   }
@@ -35,11 +36,16 @@
     color: #00d1b2;
   }
 
+  /* Setting height of page to 100% so background colour can be changed down the line (dark mode anyone?) */
+  body {
+    height: 100%;
+  }
 
+  html {
+    height: 100%;
+  }
 
   </style>
-
-
 </head>
 
 <body>
@@ -58,7 +64,7 @@
         <!-- Search -->
         <div class="container" style="max-width: 600px;">
           <div class="control has-icons-left">
-            <input class="input" id="search-string" placeholder="search for a product..." autofocus>
+            <input class="input is-rounded" id="search-string" placeholder="search for a product..." autofocus>
             <span class="icon is-small is-left">
               <i class="fas fa-search"></i>
             </span>
@@ -66,51 +72,51 @@
         </div>
 
         <!-- Search results -->
-
         <div class="container" style="max-width: 500px;">
           <br>
           <ul id="list" style="font-size:18px"></ul>
         </div>
 
-        <ul>
+        <!-- Loads json file -->
+        <script type="text/javascript" src="products.json"></script>
 
+        <!-- Lists all product category titles in a list, with custom url to link to product page -->
+        <script>
+        var keys = Object.keys(products);
+        var output = "";
+        for (i in keys) {
+          output = output + "<li> <a href=\"products.htm?" + encodeURIComponent(keys[i]).replace('%20','+') + "\"</a>" + keys[i] + "</li>";
+        }
+        document.getElementById("list").style.display = "none";
+        document.getElementById("list").innerHTML = output;
+        </script>
 
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <!-- Hides all list values which don't match the search criteria -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-          <script>
-          $(document).ready(function(){
-            document.getElementById("list").style.display = "block";
-            $("#list li").hide();
-            $("#search-string").on("keyup", function() {
-              var value = $(this).val().toLowerCase();
+        <script>
+        $(document).ready(function(){
+          document.getElementById("list").style.display = "block";
+          $("#list li").hide(); // hides list by default
+          $("#search-string").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
 
-              $("#list li").filter(function() {
-                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-              });
-
-              if(value.length == 0) {
-                $("#list li").hide();
-              }
+            $("#list li").filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1) // I don't know what this means
             });
+
+            // Hides list if search string is empty
+            if(value.length == 0) {
+              $("#list li").hide();
+            }
           });
-          </script>
+        });
+        </script>
 
-          <script type="text/javascript" src="products.json"></script>
+      </div>
 
-          <script>
-          var keys = Object.keys(products);
-          var output = "";
-          for (i in keys) {
-            output = output + "<li> <a href=\"products.htm?" + encodeURIComponent(keys[i]).replace('%20','+') + "\"</a>" + keys[i] + "</li>";
-          }
-          document.getElementById("list").style.display = "none";
-          document.getElementById("list").innerHTML = output;
-          </script>
+    </section>
 
-        </div>
+  </body>
 
-      </section>
-
-    </body>
-
-    </html>
+  </html>
