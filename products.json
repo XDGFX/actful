@@ -1,114 +1,46 @@
-var products = {
-  "toothbrush": {
-    "product1": {
-      "name": "b",
-      "tags": "d",
-      "desc": "f",
-      "image_url": "g"
+var products = [
+    {
+        "category": "Tampons",
+        "productname": "Organic Cotton Tampons",
+        "brand": "Organ(y)c",
+        "description": "One of the easiest ways to be eco-friendly on your period. Organ(y)c produces organic, biodegrable tampons made from 100% organic cotton and safe and natural chemicals. ",
+        "amazonurl": "https://www.amazon.co.uk/Organ-Super-Compact-Applicator-Tampons/dp/B0759KQ4SB/ref=sr_1_2?keywords=organyc+tampons&qid=1567334070&s=drugstore&sr=1-2",
+        "brandurl": "https://www.organyc-online.com/type/tampons/"
     },
-    "product2": {
-      "name": "r",
-      "tags": "rg",
-      "desc": "s",
-      "image_url": "verv"
-    }
-  },
-  "soap": {
-    "product3": {
-      "name": "b",
-      "tags": "d",
-      "desc": "f",
-      "image_url": "g"
+    {
+        "category": "Tampons",
+        "productname": "Organic Cotton, Non-Applicator Tampons",
+        "brand": "Cora",
+        "description": "These tampons are made from certified organic cotton (which is completely biodegradable), and made without pesticides, dioxins, polyester and fragrance (making them hypoallergenic!). They can be bought with or without an applicator, however the applicator is made from plastic - making the applicator-free tampons more eco-friendly! These tampons can be bought as a subscription via their website, or bought in bulk through other websites.",
+        "amazonurl": "https://www.amazon.com/Cora-Organic-Non-Applicator-Tampons-Applicator-Free/dp/B0721CCDFD/ref=as_li_ss_tl?keywords=non-applicator%2Btampons&qid=1559151551&s=gateway&sr=8-5&th=1&linkCode=sl1&tag=householdwo04-20&linkId=55ab317771b3d4fa7b29716518faf021&language=en_US"
     },
-    "product4": {
-      "name": "r",
-      "tags": "rg",
-      "desc": "s",
-      "image_url": "verv"
-    }
-  },
-  "toothpaste": {
-    "product3": {
-      "name": "b",
-      "tags": "d",
-      "desc": "f",
-      "image_url": "g"
+    {
+        "category": "Tampons",
+        "productname": "Sea Pearls Reusable Sea Sponges",
+        "brand": "jade&pearl",
+        "description": "Natural seas sponges, a naturally renewable resource that can regenerate once they are harvested. These sponges last from 3-6 months per sponge, and are completely free of chemicals, bleach or synthetic materials. The company ensures that all sponges are sustainably harvested and they are biodegradable. The sponges come in a range of sizes, but can also be cut to adjust to individual specification. ",
+        "amazonurl": "https://www.amazon.co.uk/Pearls-Natural-Sponge-Tampons-Medium/dp/B000VV27OU",
+        "brandurl": "http://jadeandpearl.com/sea-pearls-reusable-sea-sponges/"
     },
-    "product4": {
-      "name": "r",
-      "tags": "rg",
-      "desc": "s",
-      "image_url": "verv"
-    }
-  },
-  "shower gel": {
-    "product3": {
-      "name": "b",
-      "tags": "d",
-      "desc": "f",
-      "image_url": "g"
+    {
+        "category": "Pads",
+        "productname": "Cloth Pads",
+        "brand": "GladRags",
+        "description": "Reusable pads that are chemical free that last for up to 5 years. They have a range of different pads, depending on the absorbency you need, and each order comes with a carry bag for changing them on the go. The pads are more comfortable than synthetic pads or tampons, and despite the initial investment they pay off over time (saving you a lot of money!).",
+        "amazonurl": "https://www.amazon.co.uk/Glad-Rags-CL1-GladRags-Colour/dp/B00028PRNA/ref=lp_3680952031_1_2_a_it?srs=3680952031&ie=UTF8&qid=1567356586&sr=8-2",
+        "brandurl": "https://gladrags.com/collections/day-pads"
     },
-    "product4": {
-      "name": "r",
-      "tags": "rg",
-      "desc": "s",
-      "image_url": "verv"
-    }
-  },
-  "internet": {
-    "product1": {
-      "name": "b",
-      "tags": "d",
-      "desc": "f",
-      "image_url": "g"
+    {
+        "category": "Menstrual Cup",
+        "productname": "XO Flo",
+        "brand": "GladRags",
+        "description": "Coming in two different sizes, this cup takes some of the difficulty out of having a period, and promises to reduce irritation and dryness. It can be worn for up to 12 hours at a time, and lasts for a number of years. It takes a bit of getting used to, but the initial investment and time spent learning will pay off within months!",
+        "amazonurl": "https://www.amazon.co.uk/GladRags-XO-Flo-Menstrual-Cup/dp/B06XFKGP1K/ref=sr_1_1?keywords=GladRags+XO+Flo+Menstrual+Cup&qid=1567357055&s=gateway&sr=8-1",
+        "brandurl": "https://gladrags.com/collections/menstrual-cups/products/xo-flo-mini"
     },
-    "product2": {
-      "name": "r",
-      "tags": "rg",
-      "desc": "s",
-      "image_url": "verv"
+    {
+        "category": "Menstrual Cup",
+        "productname": "Lunette Menstrual Cup",
+        "brand": "Lunette"
     }
-  },
-  "energy provider": {
-    "product3": {
-      "name": "b",
-      "tags": "d",
-      "desc": "f",
-      "image_url": "g"
-    },
-    "product4": {
-      "name": "r",
-      "tags": "rg",
-      "desc": "s",
-      "image_url": "verv"
-    }
-  },
-  "mobile phone": {
-    "product3": {
-      "name": "b",
-      "tags": "d",
-      "desc": "f",
-      "image_url": "g"
-    },
-    "product4": {
-      "name": "r",
-      "tags": "rg",
-      "desc": "s",
-      "image_url": "verv"
-    }
-  },
-  "phone contract": {
-    "product3": {
-      "name": "b",
-      "tags": "d",
-      "desc": "f",
-      "image_url": "g"
-    },
-    "product4": {
-      "name": "r",
-      "tags": "rg",
-      "desc": "s",
-      "image_url": "verv"
-    }
-  }
-};
+];

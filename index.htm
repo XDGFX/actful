@@ -74,43 +74,69 @@
         <!-- Search results -->
         <div class="container" style="max-width: 500px;">
           <br>
-          <ul id="list" style="font-size:18px"></ul>
+          <table id="results" style="font-size: 18px; width: 100%"></table>
         </div>
 
-        <!-- Loads json file -->
+        <!-- Search -->
         <script type="text/javascript" src="products.json"></script>
-
-        <!-- Lists all product category titles in a list, with custom url to link to product page -->
-        <script>
-        var keys = Object.keys(products);
-        var output = "";
-        for (i in keys) {
-          output = output + "<li> <a href=\"products.htm?" + encodeURIComponent(keys[i]).replace('%20','+') + "\"</a>" + keys[i] + "</li>";
-        }
-        document.getElementById("list").style.display = "none";
-        document.getElementById("list").innerHTML = output;
-        </script>
-
-        <!-- Hides all list values which don't match the search criteria -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.5/fuse.min.js"></script>
 
         <script>
-        $(document).ready(function(){
-          document.getElementById("list").style.display = "block";
-          $("#list li").hide(); // hides list by default
-          $("#search-string").on("keyup", function() {
-            var value = $(this).val().toLowerCase();
 
-            $("#list li").filter(function() {
-              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1) // I don't know what this means
-            });
+        // Finding all unique categories from JSON
+        var lookup = {};
+        var uniqueItems = [];
 
-            // Hides list if search string is empty
-            if(value.length == 0) {
-              $("#list li").hide();
-            }
-          });
+        for (var item, i = 0; item = products[i++];) {
+          var category = item.category;
+
+          if (!(category in lookup)) {
+            lookup[category] = 1;
+            uniqueItems.push(category);
+          }
+        }
+
+        // Options for Fuse
+        var options = {
+          shouldSort: true,
+          tokenize: true,
+          findAllMatches: true,
+          threshold: 0.6,
+          location: 0,
+          distance: 100,
+          maxPatternLength: 32,
+          minMatchCharLength: 1,
+        };
+
+        // Create Fuse search
+        var fuse = new Fuse(uniqueItems, options);
+        var result = {};
+
+        // Search function
+        $('#search-string').on('input', function() {
+          var searchString = document.getElementById("search-string").value;
+          var result = fuse.search(searchString);
+
+          var outputList = "";
+
+          // Look through results and create a html string
+          for (value in result) {
+            product = uniqueItems[result[value]];
+            var outputList = outputList + "<tr> <td> <a href=\"products.htm?"
+            + encodeURIComponent(product).replace('%20','+') + "\"</a>" + product + "</td> </tr>";
+          };
+
+          // Output results to results table
+          document.getElementById("results").innerHTML = outputList;
+
+          // Clearing table if searchbox is empty
+          if(searchString.length == 0) {
+            var outputList = "<tr> <td> </td> </tr>";
+            document.getElementById("results").innerHTML = outputList;
+          };
         });
+
         </script>
 
       </div>
@@ -118,5 +144,4 @@
     </section>
 
   </body>
-
   </html>
