@@ -11,22 +11,22 @@ var products = [
         "category": "Tampons",
         "productname": "Organic Cotton, Non-Applicator Tampons",
         "brand": "Cora",
-        "description": "These tampons are made from certified organic cotton (which is completely biodegradable), and made without pesticides, dioxins, polyester and fragrance (making them hypoallergenic!). They can be bought with or without an applicator, however the applicator is made from plastic - making the applicator-free tampons more eco-friendly! These tampons can be bought as a subscription via their website, or bought in bulk through other websites.",
+        "description": "Okay, non-applicator sounds scary but hear me out. They're completely biodegradable, hypoallergenic (no nasty fragrances and toxins) and come in cute packaging. Sounds pretty good to me! They are a tad more expensive than regular store ones but at least you'll have a good conscience?!",
         "amazonurl": "https://www.amazon.com/Cora-Organic-Non-Applicator-Tampons-Applicator-Free/dp/B0721CCDFD/ref=as_li_ss_tl?keywords=non-applicator%2Btampons&qid=1559151551&s=gateway&sr=8-5&th=1&linkCode=sl1&tag=householdwo04-20&linkId=55ab317771b3d4fa7b29716518faf021&language=en_US"
     },
     {
         "category": "Tampons",
         "productname": "Sea Pearls Reusable Sea Sponges",
         "brand": "jade&pearl",
-        "description": "Natural seas sponges, a naturally renewable resource that can regenerate once they are harvested. These sponges last from 3-6 months per sponge, and are completely free of chemicals, bleach or synthetic materials. The company ensures that all sponges are sustainably harvested and they are biodegradable. The sponges come in a range of sizes, but can also be cut to adjust to individual specification. ",
-        "amazonurl": "https://www.amazon.co.uk/Pearls-Natural-Sponge-Tampons-Medium/dp/B000VV27OU",
+        "description": "Okay, yeah, sea sponge sounds odd but let me explain. The sea sponges are a naturally renewable resource, last 3-6 months per sponge, are free of nasty chemicals and are completely biodegradable when you're done! They also come in a range of sizes, and can be cut to fit your individual specification. So... Basically it's a sponge that you put up your vagina and you won't leak everywhere. Sounds worth a try!",
+        "amazonurl": "https:",
         "brandurl": "http://jadeandpearl.com/sea-pearls-reusable-sea-sponges/"
     },
     {
         "category": "Pads",
         "productname": "Cloth Pads",
         "brand": "GladRags",
-        "description": "Reusable pads that are chemical free that last for up to 5 years. They have a range of different pads, depending on the absorbency you need, and each order comes with a carry bag for changing them on the go. The pads are more comfortable than synthetic pads or tampons, and despite the initial investment they pay off over time (saving you a lot of money!).",
+        "description": "Reusable pads that are chemical free that last for up to 5 years. They have a range of different pads, depending on the absorbency you need, and each order comes with a carry bag for changing them on the go. The pads are more comfortable than synthetic pads or tampons, and despite the initial investment they pay off over time (saving you a lot of money!). They also have helpful poppers so that you can attach them securely around your pants!",
         "amazonurl": "https://www.amazon.co.uk/Glad-Rags-CL1-GladRags-Colour/dp/B00028PRNA/ref=lp_3680952031_1_2_a_it?srs=3680952031&ie=UTF8&qid=1567356586&sr=8-2",
         "brandurl": "https://gladrags.com/collections/day-pads"
     },
@@ -41,6 +41,128 @@ var products = [
     {
         "category": "Menstrual Cup",
         "productname": "Lunette Menstrual Cup",
-        "brand": "Lunette"
+        "brand": "Lunette",
+        "description": "Coming in different sizes and colours (so it can match your everday outfit), these cups last up to 12 hours a day. Although a bigger initial investment, Lunette boasts that it will pay for itself after just 3 months. Each cup is BPA and chemical free, and comes with a bag to store it safely in.",
+        "amazonurl": "https://www.amazon.co.uk/Lunette-Menstrual-Cup-Violet-Reusable/dp/B002MA4SI6/ref=sr_1_5?crid=34Z5RAV3QZO62&keywords=lunette%2Bmenstrual%2Bcup&qid=1567357350&s=gateway&sprefix=lunette%2Bmen%2Caps%2C139&sr=8-5&th=1",
+        "brandurl": "https://uk.lunette.com/collections/lunette-menstrual-cups/products/lunette-menstrual-cup-blue"
+    },
+    {
+        "category": "Menstrual Cup",
+        "productname": "MoonCup",
+        "brand": "MoonCup",
+        "description": "Coming in two different sizes, this cup is latex-free and hypoallergenic, containing no toxins, perfumes, plastic or BPA. It lasts up to 8 hours (depending on your flow) and holds 3x more than a regular tampon. Although a high initial investment, the MoonCup boasts that it pays for itself after 6-8 months and lasts a number of years. ",
+        "amazonurl": "https://www.amazon.co.uk/Mooncup-Size-B-Single/dp/B019A52SHI/ref=sr_1_5?keywords=mooncup&qid=1567357627&s=gateway&sr=8-5",
+        "brandurl": "https://www.mooncup.co.uk/select-your-country/"
+    },
+    {
+        "category": "Menstrual Cup",
+        "productname": "GRRRLCUP",
+        "brand": "GRRRL CUP.",
+        "description": "A cheaper alternative to other menstrual cups (with all the sames benefits), this cup only needs to be changed once or twice a day depending on flow, and lasts for years. What's more, the company itself is doing it's bit to end period inequality - for every GRRRLCUP you buy, they donate money to period rights groups! You can read more about what they're doing, and how to get involved, on their website linked!",
+        "amazonurl": "https://www.amazon.co.uk/GRRRL-CUP-Transparent-Alternative-ecofriendly/dp/B0728NVJ7H/ref=sr_1_18?keywords=mooncup&qid=1567357627&s=gateway&sr=8-18",
+        "brandurl": "https://www.grrrlcup.com"
+    },
+    {
+        "category": "Menstrual Cup",
+        "productname": "OrganiCup",
+        "brand": "OrganiCup",
+        "description": "Coming in three different sizes, this menstrual cup is slightly cheaper than the popular alternatives (with all the same benefits!). It lasts for up to 12 hours a day, depending on your flow, and holds 3x more than a regular tampon. The cup is hypoallegenic, and the company is registered vegan and cruelty-free. OrganiCup are also a very good company, supporting NGOs and charities around the world to end period poverty and increase period education.",
+        "amazonurl": "https://www.amazon.co.uk/OrganiCup-ORGCUPQO2-Menstrual-Cup-A/dp/B00CREHM62/ref=sr_1_6?keywords=mooncup&qid=1567357627&s=gateway&sr=8-6",
+        "brandurl": "https://www.organicup.com/product/organicup/"
+    },
+    {
+        "category": "Menstrual Cup",
+        "productname": "The DivaCup",
+        "brand": "DivaCup",
+        "description": "Another popular brand, the DivaCup has guaranteed 12 Hour Leak-Free Protection (it says it on their website...so don't blame us if it's not true!). Like other menstrual cups, the DivaCup is made of 100% medical-grade silicone, and doesn't contain latex, rubber, BPA, plastic or any dye. It also comes in a range of sizes, so you can pick the one that suits you best! On their website it lists the places that it can be stocked in, although Amazon might be the easiest!",
+        "region": "US, Canada, UK, Australia, Switzerland, Mexico, Middle East, Indonesia, China, Hong Kong, Philippines.",
+        "amazonurl": "https://www.amazon.co.uk/DivaCup-Model-Menstrual-Cup/dp/B000FAG6XA/ref=sr_1_2?keywords=divacup&qid=1567358678&s=gateway&sr=8-2",
+        "brandurl": "https://divacup.com/online/"
+    },
+    {
+        "category": "Menstrual Cup",
+        "productname": "Dutchess Cup",
+        "brand": "DUTCHESS",
+        "description": "This product contains two cups (making it cheaper than alternatives), and can come in different sizes. The cup is 100% medical grade silicone, and can be worn for up to 12 hours! ",
+        "amazonurl": "https://www.amazon.co.uk/Dutchess-Menstrual-Cups-Set-Free/dp/B00PBI86O8/ref=sr_1_8?keywords=menstrual+cup&qid=1567358317&s=gateway&sr=8-8"
+    },
+    {
+        "category": "Pads",
+        "productname": "Resuable Bamboo Cloth Menstrual Sanitary Pads",
+        "brand": "DUTCHESS",
+        "description": "Coming in two different types (heavy flow/overnight and regular flow), these pads are made with soft bamboo fibre and have a waterproof outer layer to avoid any leakage! Although a fairly high initialy investment, these pads are washable and reusable, and can be used for a year+ (obviously up exercise some caution with this). They also have helpful poppers so that you can attach them securely around your pants!",
+        "amazonurl": "https://www.amazon.co.uk/Reusable-Bamboo-Menstrual-Sanitary-OVERNIGHT/dp/B00WS0MFJ4?ref_=ast_bbp_dp"
+    },
+    {
+        "category": "Menstrual Cup",
+        "productname": "Ziggy Cup",
+        "brand": "Intimina",
+        "description": "This 100% medical grade silicone cup guarantees no odoours, dryness or irritation on your period. With up to 12 hours protection, it covers light to heavy flows. Because of it's flat-fit design, you are able to have sex whilst using this cup (wahey!), and they guarantee absolute comfort and no mess. Like other menstrual cups, this cup can last for a few years, so the initial investment will pay off!",
+        "amazonurl": "https://www.amazon.com/Intimina-Ziggy-Cup-Extra-Thin-Menstrual/dp/B079JYJBF2/ref=as_li_ss_tl?m=A1360NTFDZNYQQ&marketplaceID=ATVPDKIKX0DER&qid=1559234482&s=merchant-items&sr=1-1&linkCode=sl1&tag=householdwo04-20&linkId=d33604327c04449a7681954b9d65c8d5&language=en_US",
+        "brandurl": "https://www.intimina.com/ziggy-cup"
+    },
+    {
+        "category": "Menstrual Cup",
+        "productname": "Lily Cup",
+        "brand": "Intimina",
+        "description": "This brand does a number of different size/shape cups, so browse their website yourself if you want to find the one that's right for you! All cups are made using medical grade silicone, and cover all types of flow. Most promise up to 12 hours of protection, and guarantee no odours, irritation or dryness. As well as designing products that reduce waste, Intimina has refined it's manufacturing process to reduce usage of materials, energy, water and minimised CO2 output. Sounds pretty good to us!",
+        "amazonurl": "https://www.amazon.com/stores/node/8541413011?_encoding=UTF8&field-lbr_brands_browse-bin=Intimina&ref_=bl_dp_s_web_8541413011",
+        "brandurl": "https://www.intimina.com"
+    },
+    {
+        "category": "Menstrual Pants",
+        "productname": "Period Pants",
+        "brand": "WUKA",
+        "description": "Okay, okay - this one might take some getting used to, but hear us out! These period pants completely replace tampons and pads, and have different options for different flows. The pants hold between 5-20ml of period flow, and can all be used for 8 hours (obviously, flow dependent). The pants are made from fabric that is CO2 neutral and apparently 3.5x softer than cotton (not sure how they worked that one out, but we'll take their word for it). They're also very nice looking pants, and come in (UK) sizes 4-20 (or roughly XXS to XXL). The company have also recently partnered with charities to raise awareness about plastic pollution, and are doing their bit to educate others. Sounds pretty good to us!",
+        "brandurl": "https://wuka.co.uk"
+    },
+    {
+        "category": "Menstrual Pants",
+        "productname": "Feeling Pretty Period Pants",
+        "brand": "Cheeky Wipes",
+        "description": "Okay, we get it, a bit of a strange concept - but hear us out! These pants replace tampons and pads, and come in different styles (cute, right?!). They have 4 layers, giving you maximum protection, but are also comfortable. The company states that they never leak, are highly absorbent and are made of breathable fabric. They're cheaper than other period pant options, so worth a try if you're looking for something new and sustainable. They come in (UK) sizes 4-18, so if you're looking for a bigger size then maybe try the WUKA or Ruby pants.",
+        "brandurl": "https://www.cheekywipes.com/period-pants-uk.html"
+    },
+    {
+        "category": "Menstrual Pants",
+        "productname": "Period Underwear",
+        "brand": "Ruby",
+        "description": "Okay, we get it, a bit of a strange concept - but hear us out! These pants replace traditional pads and tampons completely, taking a lot of the hassle out of a period! Coming in different styles, colours, and absorbency levels, Ruby has the biggest range of period pants on the market that we've seen! They promise leak-proof liner with 2 layers of 100% absorbent cotton and dri-tech mesh. They also come in (US) sizes XS-3XL, so are also the most inclusive brand we've found so far! The company promise that these last up to 3 years, so although a high initial cost - it pays off!",
+        "brandurl": "https://www.rubylove.com/product-page/period-underwear-bikini-onyx?utm_campaign=mcr&utm_content=shop%2Ball&utm_medium=affliate&utm_source=mcr"
+    },
+    {
+        "category": "Menstrual Pants",
+        "productname": "Period Underwear",
+        "brand": "FLUX undies",
+        "description": "Okay, we get it, a bit of a strange concept - but hear us out! These pants replace traditional pads and tampons, and you can wear them for up to 8 hours on lighter days. They hold up to 4pads/tampons' worth of period flow (depending on the ones you buy), and the company promises they are leak-proof, anti-microbial and super absorbent! They also come in different styles, so you can pick the ones you feel most comfortable in! They come in (UK) sizes XS-2XL, or size 8 to 22, so pretty inclusive! They are have a higher initial cost than other brands, but this pays off fairly quickly. ",
+        "brandurl": "https://www.fluxundies.com/pages/shop-period-panties"
+    },
+    {
+        "category": "Menstrual Pants",
+        "productname": "Period Underwear",
+        "brand": "Modibodi",
+        "description": "Okay, we get it, a bit of a strange concept - but hear us out! These pants replace traditional pads and tampons completely, taking a lot of the hassle out of a period! These pants come in lots of different styles, levels of absorbency, and a couple of colours - so a pretty big range! They are super slim, absorbent, and have stain and bacteria fighting lining, and come in (US) sizes 3XS-3XL, so pretty inclusive.  They are have a higher initial cost than other brands, but this pays off fairly quickly.  ",
+        "brandurl": "https://www.modibodi.com/collections/underpants/products/classic-bikini-light-moderate-absorbency?variant=25641053028452"
+    },
+    {
+        "category": "Menstrual Pants",
+        "productname": "Period Underwear",
+        "brand": "LunaPads",
+        "description": "Okay, we get it, a bit of a strange concept - but hear us out! These pants come in different styles, levels of absorbency, so you can choose the ones that fit your flow. They are also different to other period pants, as you don't need to change the pants during the day - they come with an insert that you change every few hours (so less hassle than others!) They are slim, absorbent, and come in (US) sizes XS-3XL, so pretty inclusive.  They are have a much higher initial cost than other brands, but this pays off fairly quickly. The company donates a percentage of sales to a program called One4Her, which provides washable pads to those in need, and supports projects relevant to menstrual and reproductive health - so we are a big fan of their message! ",
+        "brandurl": "https://lunapads.com/collections/underwear"
+    },
+    {
+        "category": "Toothbrush",
+        "productname": "Toothbrush",
+        "brand": "Preserve",
+        "description": "Coming in 6 different colours (wooo!), these toothbrushes are made from 100% recycled plastic (recycled yoghurt pots to be exact), although the bristles are made our of nylon. The company says it worked with dental professionals to create this toothbrush, aiming to make your teeth cleaner and minimise the impact on the environment! They are also recyclable, as you can post them back to the company for them to make other products. Pretty good concept we think! The offer free shipping deals within the US, but outside that it's not so free.",
+        "amazonurl": "https://www.amazon.co.uk/Preserve-Toothbrush-Soft-1-ea/dp/B0011DHGAC/ref=sr_1_3?crid=4CHK6TF96O63&keywords=preserve+toothbrush&qid=1567362731&s=gateway&sprefix=preserve+toothbrush%2Caps%2C164&sr=8-3",
+        "brandurl": "https://www.preserve.eco/collections/b-corp/products/toothbrush-in-lightweight-pouch-single"
+    },
+    {
+        "category": "Toothbrush",
+        "productname": "Plastic-Free Wooden Toothbrush",
+        "brand": "LifeWithoutPlastic",
+        "description": "This toothbrush is made of sustainably harvested wood (beechwood), treated with beeswas for long lasting protection and is 100% recyclable!"
     }
 ];

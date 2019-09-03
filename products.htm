@@ -9,6 +9,16 @@
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- Scroll reveal and settings -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script>
+  ScrollReveal({
+    reset: true,
+    scale: 0.95,
+    duration: 1000
+  });
+  </script>
+
   <!-- Custom font for title -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
 
@@ -31,11 +41,15 @@
     color: #00d1b2;
   }
 
+  html.sr .productList {
+    visibility: hidden;
+  }
+
   </style>
 
   <!-- Getting page from url parameter -->
   <script>
-  var product = decodeURIComponent(window.location.search.substring(1).replace('+','%20'));
+  var category = decodeURIComponent(window.location.search.substring(1).replace('+','%20'));
   </script>
 
 </head>
@@ -49,16 +63,51 @@
         actful<font color="#00d1b2">.</font></h1>
 
         <!-- Subtitle -->
-        <p class="subtitle" id="product" style="text-align: center; margin-top: -1.5%; margin-bottom: 3%;"></p>
+        <p class="subtitle" id="category" style="text-align: center; margin-top: -1.5%; margin-bottom: 3%;"></p>
 
         <script>
-        document.getElementById("product").innerHTML = product;
+        document.getElementById("category").innerHTML = category;
         </script>
 
+        <script type="text/javascript" src="products.json"></script>
+
+        <div class="container" style="max-width: 600px;">
+          <table id="productTable" style="width:100%"></table>
+        </div>
+
+        <script>
+
+        var displayProducts = products.filter(a=>a.category == category);
+
+        var outputList = "<tr>"
+        for (value in displayProducts) {
+
+          var productName = displayProducts[value].productname;
+          var productBrand = displayProducts[value].brand;
+          var productDescription = displayProducts[value].description;
+          var amazonURL = displayProducts[value].amazonurl;
+          var brandURL = displayProducts[value].brandurl;
+
+          var outputList = outputList + "<td> waht" // Image url append here
+          + " </td> <td class = \"productList\"> <strong>" + productName
+          + "</strong> by " + productBrand + "<br>"
+          + productDescription + "</td> </tr>";
+
+        };
+        document.getElementById("productTable").innerHTML = outputList;
+
+        </script>
 
       </div>
 
     </section>
+
+    <script>
+    ScrollReveal().reveal('.productList', {
+      interval: 80,
+      delay: 0
+    });
+    </script>
 
   </body>
 

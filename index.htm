@@ -36,6 +36,23 @@
     color: #00d1b2;
   }
 
+  /* Hover animation for results */
+  .hvr-forward {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+  }
+  .hvr-forward:hover, .hvr-forward:focus, .hvr-forward:active {
+    -webkit-transform: translateX(8px);
+    transform: translateX(8px);
+  }
+
   /* Setting height of page to 100% so background colour can be changed down the line (dark mode anyone?) */
   body {
     height: 100%;
@@ -64,7 +81,9 @@
         <!-- Search -->
         <div class="container" style="max-width: 600px;">
           <div class="control has-icons-left">
-            <input class="input is-rounded" id="search-string" placeholder="search for a product..." autofocus>
+            <input class="input is-rounded" style = "z-index: 1; position: absolute; top: 0;  bottom: 0; left: 0;  right: 0; background-color: transparent;" id = "search-string" placeholder = "search for a product..." autofocus>
+            <input class="input is-rounded" style = "z-index: 0; position: absolute; top: 0;  bottom: 0; left: 0;  right: 0;" id = "search-autocomplete">
+            <br>
             <span class="icon is-small is-left">
               <i class="fas fa-search"></i>
             </span>
@@ -77,7 +96,7 @@
           <table id="results" style="font-size: 18px; width: 100%"></table>
         </div>
 
-        <!-- Search -->
+        <!-- Search coding -->
         <script type="text/javascript" src="products.json"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.5/fuse.min.js"></script>
@@ -123,9 +142,30 @@
           // Look through results and create a html string
           for (value in result) {
             product = uniqueItems[result[value]];
-            var outputList = outputList + "<tr> <td> <a href=\"products.htm?"
+
+            if (value == 0) {
+              var boldStart = "<b>";
+              var boldEnd = "</b>";
+            } else {
+              var boldStart = "";
+              var boldEnd = "";
+            };
+
+            var outputList = outputList + "<tr> <td class = \"hvr-forward\"> <a href=\"products.htm?"
             + encodeURIComponent(product).replace('%20','+') + "\"</a>" + product + "</td> </tr>";
           };
+
+          // Setting background placeholder to selected result
+          var selectedIndex = 0;
+          var selectedResult = uniqueItems[result[selectedIndex]];
+
+          if (selectedResult == null) {
+            selectedResult = "";
+          } else {
+            selectedResult = " - " + selectedResult;
+          };
+
+          document.getElementById("search-autocomplete").placeholder = searchString + selectedResult;
 
           // Output results to results table
           document.getElementById("results").innerHTML = outputList;
@@ -136,6 +176,32 @@
             document.getElementById("results").innerHTML = outputList;
           };
         });
+
+        </script>
+
+        <script>
+
+        var selectedIndex = 0;
+
+        document.onkeydown = function(e) {
+          switch (e.keyCode) {
+            case 38:
+            selectedIndex--;
+            break;
+            case 40:
+            selectedIndex++;
+            break;
+          }
+
+          var table = document.getElementById('results');
+          var cells = table.getElementsByTagName('td')[selectedIndex];
+
+          // table.getElementsByTagName('td')[0].style.backgroundColor = 'white';
+
+          // cells.focus();
+          // cells.style.backgroundColor = 'green';
+          document.getElementById("search-autocomplete").placeholder = searchString + selectedResult;
+        };
 
         </script>
 
