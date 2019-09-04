@@ -58,7 +58,7 @@
     color: #00d1b2;
   }
 
-  html.sr {
+  html.sr .reveal{
     visibility: hidden;
   }
 
@@ -104,17 +104,17 @@
     <div class="container">
 
       <!-- Title -->
-      <h1 style="font-family: 'Montserrat', sans-serif; font-weight: bold; font-size: 1000%; text-align: center; padding-top: 10%">
+      <h1 class = "reveal" style="font-family: 'Montserrat', sans-serif; font-weight: bold; font-size: 1000%; text-align: center; padding-top: 10%">
         actful<font color="#00d1b2">.</font></h1>
 
         <!-- Subtitle -->
-        <p class="subtitle" style="text-align: center; margin-top: -3%; margin-bottom: 3%;">
+        <p class="subtitle reveal" style="text-align: center; margin-top: -3%; margin-bottom: 3%;">
           alternative products which promote a <strong>sustainable</strong> future for all.
         </p>
 
         <!-- Search -->
         <div class="container" style="max-width: 600px;">
-          <div class="control has-icons-left">
+          <div class="control has-icons-left reveal">
             <input class="input is-rounded" style = "z-index: 1; position: absolute; top: 0;  bottom: 0; left: 0;  right: 0; background-color: transparent;" id = "search-string" placeholder = "search for a product..." autofocus>
             <input class="input is-rounded" style = "z-index: 0; position: absolute; top: 0;  bottom: 0; left: 0;  right: 0;" id = "search-autocomplete">
             <br>
@@ -246,9 +246,9 @@
 
     <!-- About footer -->
     <footer class="footer-alt">
-      <div class="content has-text-centered">
+      <div class="content has-text-centered reveal">
         <br>
-        <a href="about.htm" class="button is-outlined is-small is-rounded modal-button" data-target="modal-about" aria-haspopup="true" style="color:grey">
+        <a href="about.htm" class="button is-outlined is-small is-rounded modal-button" style="color:grey">
           <span class="icon">
             <i class="fas fa-heart"></i>
           </span>
@@ -260,7 +260,7 @@
   </footer>
 
   <script>
-  ScrollReveal().reveal('.sr', {
+  ScrollReveal().reveal('.reveal', {
     interval: 80,
     delay: 100
   });

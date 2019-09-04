@@ -90,16 +90,18 @@
         actful<font color="#00d1b2">.</font></h1>
 
         <!-- Subtitle -->
-        <p class="subtitle" id="category" style="text-align: center; margin-top: -1.5%; margin-bottom: 3%;"></p>
-
+        <div class="content has-text-centered">
+          <p style="font-family: 'Montserrat', sans-serif;" class="tag is-medium is-rounded is-lowercase" id="category"></p>
+        </div>
         <br>
-
         <script>
         document.getElementById("category").innerHTML = category;
         </script>
 
+        <!-- Loading products database -->
         <script type="text/javascript" src="products.json"></script>
 
+        <!-- Back button -->
         <div class="sticky">
           <a class="button is-rounded" href="javascript:history.back()">
             <span class="icon">
@@ -108,6 +110,7 @@
           </a>
         </div>
 
+        <!-- Main products table -->
         <div class="container" style="max-width: 1000px;">
           <table class="table is-hoverable" id="product-table"></table>
         </div>
@@ -156,28 +159,13 @@
 
     </section>
 
-    <!-- About footer -->
-    <footer class="footer-alt">
-      <div class="content has-text-centered">
-        <br>
-        <a href="about.htm" class="button is-outlined is-small is-rounded modal-button" data-target="modal-about" aria-haspopup="true" style="color:grey">
-          <span class="icon">
-            <i class="fas fa-heart"></i>
-          </span>
-          <span>about</span>
-        </a>
-        <br><br>
-      </div>
-    </div>
-  </footer>
+  <script>
+  ScrollReveal().reveal('.reveal', {
+    interval: 80,
+    delay: 0
+  });
+  </script>
 
-    <script>
-    ScrollReveal().reveal('.reveal', {
-      interval: 80,
-      delay: 0
-    });
-    </script>
+</body>
 
-  </body>
-
-  </html>
+</html>
