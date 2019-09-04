@@ -5,15 +5,37 @@
   <title>actful - alternative products for a better world</title>
 
   <!-- Scripts for style, CSS, etc -->
-  <link rel="stylesheet" href="bulma.css">
+  <link rel="stylesheet" href="css/bulma.css">
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Custom favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+  <link rel="manifest" href="icons/site.webmanifest">
+  <link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#00d1b2">
+  <meta name="apple-mobile-web-app-title" content="actful.">
+  <meta name="application-name" content="actful.">
+  <meta name="msapplication-TileColor" content="#ff0000">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Scroll reveal and settings -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script>
+  ScrollReveal({
+    reset: false,
+    scale: 0.95,
+    duration: 1000
+  });
+  </script>
 
   <!-- Custom font for title -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
 
-  <!-- Custom selection colours... oooh fancy! -->
   <style>
+
+  /* Custom selection colours... ooh fancy! */
   ::-moz-selection { /* Code for Firefox */
     color: white;
     background: #00d1b2;
@@ -34,6 +56,10 @@
 
   a:hover {
     color: #00d1b2;
+  }
+
+  html.sr {
+    visibility: hidden;
   }
 
   /* Hover animation for results */
@@ -60,6 +86,14 @@
 
   html {
     height: 100%;
+  }
+
+  /* Setting footer position and colours */
+  .footer-alt {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
   }
 
   </style>
@@ -179,6 +213,7 @@
 
         </script>
 
+        <!-- Experimental keyboard controls -->
         <script>
 
         var selectedIndex = 0;
@@ -209,5 +244,27 @@
 
     </section>
 
-  </body>
-  </html>
+    <!-- About footer -->
+    <footer class="footer-alt">
+      <div class="content has-text-centered">
+        <br>
+        <a href="about.htm" class="button is-outlined is-small is-rounded modal-button" data-target="modal-about" aria-haspopup="true" style="color:grey">
+          <span class="icon">
+            <i class="fas fa-heart"></i>
+          </span>
+          <span>about</span>
+        </a>
+        <br><br>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  ScrollReveal().reveal('.sr', {
+    interval: 80,
+    delay: 100
+  });
+  </script>
+
+</body>
+</html>

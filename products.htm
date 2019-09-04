@@ -5,9 +5,21 @@
   <title>actful - alternative products for a better world</title>
 
   <!-- Scripts for style, CSS, etc -->
-  <link rel="stylesheet" href="bulma.css">
+  <link rel="stylesheet" href="css/bulma.css">
+  <link rel="stylesheet" href="css/bulma-tooltip.min.css">
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Custom favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+  <link rel="manifest" href="icons/site.webmanifest">
+  <link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#00d1b2">
+  <meta name="apple-mobile-web-app-title" content="actful.">
+  <meta name="application-name" content="actful.">
+  <meta name="msapplication-TileColor" content="#ff0000">
+  <meta name="theme-color" content="#ffffff">
 
   <!-- Scroll reveal and settings -->
   <script src="https://unpkg.com/scrollreveal"></script>
@@ -22,8 +34,10 @@
   <!-- Custom font for title -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
 
-  <!-- Custom selection colours... oooh fancy! -->
-  <style> ::-moz-selection { /* Code for Firefox */
+  <style>
+
+  /* Custom selection colours... ooh fancy! */
+  ::-moz-selection { /* Code for Firefox */
     color: white;
     background: #00d1b2;
   }
@@ -37,12 +51,25 @@
     color: hsl(0, 0%, 21%);
   }
 
+  a:visited {
+    color: hsl(0, 0%, 21%);
+  }
+
   a:hover {
     color: #00d1b2;
   }
 
-  html.sr .productList {
+  html.sr .reveal {
     visibility: hidden;
+  }
+
+  /* Make elements sticky */
+  div.sticky {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 50px;
+    z-index: 1;
+    margin-bottom: -4em
   }
 
   </style>
@@ -65,14 +92,24 @@
         <!-- Subtitle -->
         <p class="subtitle" id="category" style="text-align: center; margin-top: -1.5%; margin-bottom: 3%;"></p>
 
+        <br>
+
         <script>
         document.getElementById("category").innerHTML = category;
         </script>
 
         <script type="text/javascript" src="products.json"></script>
 
-        <div class="container" style="max-width: 600px;">
-          <table id="productTable" style="width:100%"></table>
+        <div class="sticky">
+          <a class="button is-rounded" href="javascript:history.back()">
+            <span class="icon">
+              <i class="fas fa-chevron-left"></i>
+            </span>
+          </a>
+        </div>
+
+        <div class="container" style="max-width: 1000px;">
+          <table class="table is-hoverable" id="product-table"></table>
         </div>
 
         <script>
@@ -88,13 +125,30 @@
           var amazonURL = displayProducts[value].amazonurl;
           var brandURL = displayProducts[value].brandurl;
 
-          var outputList = outputList + "<td> waht" // Image url append here
-          + " </td> <td class = \"productList\"> <strong>" + productName
-          + "</strong> by " + productBrand + "<br>"
-          + productDescription + "</td> </tr>";
+          var brandHTML = "";
+          var amazonHTML = "";
+
+          if (typeof brandURL !== 'undefined') {
+            brandHTML = "<a href=\"" + brandURL + "\" class=\"button is-primary is-rounded is-outlined is-small\"> <span class=\"icon\">"
+            + "<i class=\"fas fa-store-alt\"></i> </span> <span>Website</span> </a> &emsp;"
+          }
+
+          if (typeof amazonURL !== 'undefined') {
+            amazonHTML = "<a href=\"" + amazonURL + "\" class=\"button is-primary is-rounded is-outlined is-small tooltip is-tooltip-right is-tooltip-warning\" data-tooltip="
+            + "\"If you buy using this affiliate link, we get a small commission :)\"> <span class=\"icon\"> <i class=\"fab fa-amazon\"></i> </span> <span>Amazon</span> </a>"
+          }
+
+          var imageHTML = "<br> <figure style=\"height: 200px; width: 200px; overflow: hidden;\">"
+          + "<img class=\"is-rounded\" style=\"border-radius: 50%;\" src=\"https://5.imimg.com/data5/KU/US/PP/SELLER-30264558/img-20180203-wa0004-500x500.jpg\">"
+          + "</figure> <br>"
+
+          var outputList = outputList + "<td class = \"product-image reveal\" style=\"vertical-align:middle\">" + imageHTML
+          + " </td> <td class = \"product-list reveal\" style=\"vertical-align:middle\"> <br> <strong>" + productName
+          + "</strong> by " + productBrand + "<br> <br>"
+          + productDescription + "<br> <br>" + brandHTML + amazonHTML + "<br> <br> </td> </tr>";
 
         };
-        document.getElementById("productTable").innerHTML = outputList;
+        document.getElementById("product-table").innerHTML = outputList;
 
         </script>
 
@@ -102,8 +156,23 @@
 
     </section>
 
+    <!-- About footer -->
+    <footer class="footer-alt">
+      <div class="content has-text-centered">
+        <br>
+        <a href="about.htm" class="button is-outlined is-small is-rounded modal-button" data-target="modal-about" aria-haspopup="true" style="color:grey">
+          <span class="icon">
+            <i class="fas fa-heart"></i>
+          </span>
+          <span>about</span>
+        </a>
+        <br><br>
+      </div>
+    </div>
+  </footer>
+
     <script>
-    ScrollReveal().reveal('.productList', {
+    ScrollReveal().reveal('.reveal', {
       interval: 80,
       delay: 0
     });

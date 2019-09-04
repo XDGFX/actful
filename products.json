@@ -19,7 +19,6 @@ var products = [
         "productname": "Sea Pearls Reusable Sea Sponges",
         "brand": "jade&pearl",
         "description": "Okay, yeah, sea sponge sounds odd but let me explain. The sea sponges are a naturally renewable resource, last 3-6 months per sponge, are free of nasty chemicals and are completely biodegradable when you're done! They also come in a range of sizes, and can be cut to fit your individual specification. So... Basically it's a sponge that you put up your vagina and you won't leak everywhere. Sounds worth a try!",
-        "amazonurl": "https:",
         "brandurl": "http://jadeandpearl.com/sea-pearls-reusable-sea-sponges/"
     },
     {
@@ -156,7 +155,7 @@ var products = [
         "productname": "Toothbrush",
         "brand": "Preserve",
         "description": "Coming in 6 different colours (wooo!), these toothbrushes are made from 100% recycled plastic (recycled yoghurt pots to be exact), although the bristles are made our of nylon. The company says it worked with dental professionals to create this toothbrush, aiming to make your teeth cleaner and minimise the impact on the environment! They are also recyclable, as you can post them back to the company for them to make other products. Pretty good concept we think! The offer free shipping deals within the US, but outside that it's not so free.",
-        "amazonurl": "https://www.amazon.co.uk/Preserve-Toothbrush-Soft-1-ea/dp/B0011DHGAC/ref=sr_1_3?crid=4CHK6TF96O63&keywords=preserve+toothbrush&qid=1567362731&s=gateway&sprefix=preserve+toothbrush%2Caps%2C164&sr=8-3",
+        "amazonurl": "https://amzn.to/2LsccXX",
         "brandurl": "https://www.preserve.eco/collections/b-corp/products/toothbrush-in-lightweight-pouch-single"
     },
     {
