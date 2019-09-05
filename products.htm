@@ -133,6 +133,7 @@
         var outputList = "<tr>"
         for (value in displayProducts) {
 
+          var id = displayProducts[value].id;
           var productName = displayProducts[value].productname;
           var productBrand = displayProducts[value].brand;
           var productDescription = displayProducts[value].description;
@@ -143,21 +144,21 @@
           var amazonHTML = "";
 
           if (typeof brandURL !== 'undefined') {
-            brandHTML = "<a href=\"" + brandURL + "\" class=\"button is-primary is-rounded is-outlined is-small\"> <span class=\"icon\">"
+            brandHTML = "<a href=\"http://" + brandURL + "\" class=\"button is-primary is-rounded is-outlined is-small\"> <span class=\"icon\">"
             + "<i class=\"fas fa-store-alt\"></i> </span> <span>Website</span> </a> &emsp;"
           }
 
           if (typeof amazonURL !== 'undefined') {
-            amazonHTML = "<a href=\"" + amazonURL + "\" class=\"button is-primary is-rounded is-outlined is-small tooltip is-tooltip-right is-tooltip-warning\" data-tooltip="
+            amazonHTML = "<a href=\"http://" + amazonURL + "\" class=\"button is-primary is-rounded is-outlined is-small tooltip is-tooltip-right is-tooltip-warning\" data-tooltip="
             + "\"If you buy using this affiliate link, we get a small commission :)\"> <span class=\"icon\"> <i class=\"fab fa-amazon\"></i> </span> <span>Amazon</span> </a>"
           }
 
-          var imageHTML = "<br> <figure style=\"height: 200px; width: 200px; overflow: hidden;\">"
-          + "<img class=\"is-rounded\" style=\"border-radius: 50%;\" src=\"https://5.imimg.com/data5/KU/US/PP/SELLER-30264558/img-20180203-wa0004-500x500.jpg\">"
+          var imageHTML = "<br> <figure style=\"height: 256px; width: 256px; overflow: hidden;\">"
+          + "<img class=\"is-rounded\" style=\"border-radius: 50%;\" src=images/products/" + id +".jpg>"
           + "</figure> <br>"
 
           var outputList = outputList + "<td class = \"product-image reveal\" style=\"vertical-align:middle\">" + imageHTML
-          + " </td> <td class = \"product-list reveal\" style=\"vertical-align:middle\"> <br> <strong>" + productName
+          + " </td> <td class = \"product-list reveal\" style=\"vertical-align:middle; padding-left: 50px\"> <br> <strong>" + productName
           + "</strong> by " + productBrand + "<br> <br>"
           + productDescription + "<br> <br>" + brandHTML + amazonHTML + "<br> <br> </td> </tr>";
 
