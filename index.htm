@@ -164,13 +164,13 @@
         // Options for Fuse
         var options = {
           shouldSort: true,
-          tokenize: true,
-          findAllMatches: true,
-          threshold: 0.6,
+          tokenize: false,
+          findAllMatches: false,
+          threshold: 0.5,
           location: 0,
           distance: 100,
           maxPatternLength: 32,
-          minMatchCharLength: 1,
+          minMatchCharLength: 2,
         };
 
         // Create Fuse search
@@ -214,13 +214,13 @@
           };
 
           // Allowing enter to go to selected result
-          document.getElementById("search-string").addEventListener("keyup", function(event) {
-            if (selectedResult !== null && event.keyCode === 13) {
-              alert(selectedResult)
-              event.preventDefault();
-              window.location.href = "products.htm?" + encodeURIComponent(selectedResult).replace('%20','+');
-            };
-          });
+          // document.getElementById("search-string").addEventListener("keyup", function(event) {
+          //   if (selectedResult !== null && event.keyCode === 13) {
+          //     alert(selectedResult)
+          //     event.preventDefault();
+          //     window.location.href = "products.htm?" + encodeURIComponent(selectedResult).replace('%20','+');
+          //   };
+          // });
         });
 
         </script>
