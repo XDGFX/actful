@@ -9,6 +9,10 @@
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- Page fade CSS and Javascript-->
+  <link rel="stylesheet" href="css/page-fade.css">
+  <script src="js/page-fade.js"></script>
+
   <!-- Custom favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
@@ -100,6 +104,13 @@
 </head>
 
 <body>
+
+  <!-- Page fade in -->
+  <svg id="fader"></svg>
+  <script>
+  fadeInPage();
+  </script>
+
   <section class="section">
     <div class="container">
 
@@ -114,9 +125,9 @@
 
         <!-- Search -->
         <div class="container" style="max-width: 600px;">
-          <div class="control has-icons-left reveal">
+          <div class="control has-icons-left">
             <input class="input is-rounded" style = "z-index: 1; position: absolute; top: 0;  bottom: 0; left: 0;  right: 0; background-color: transparent;" id = "search-string" placeholder = "search for a product..." autofocus>
-            <input class="input is-rounded" style = "z-index: 0; position: absolute; top: 0;  bottom: 0; left: 0;  right: 0;" id = "search-autocomplete">
+            <input class="input is-rounded" style = "z-index: 0; position: absolute; top: 0;  bottom: 0; left: 0;  right: 0; background-color: transparent;" id = "search-autocomplete" disabled>
             <br>
             <span class="icon is-small is-left">
               <i class="fas fa-search"></i>
@@ -177,14 +188,6 @@
           for (value in result) {
             product = uniqueItems[result[value]];
 
-            if (value == 0) {
-              var boldStart = "<b>";
-              var boldEnd = "</b>";
-            } else {
-              var boldStart = "";
-              var boldEnd = "";
-            };
-
             var outputList = outputList + "<tr> <td class = \"hvr-forward\"> <a href=\"products.htm?"
             + encodeURIComponent(product).replace('%20','+') + "\"</a>" + product + "</td> </tr>";
           };
@@ -194,12 +197,12 @@
           var selectedResult = uniqueItems[result[selectedIndex]];
 
           if (selectedResult == null) {
-            selectedResult = "";
+            selectedResultAutocomplete = "";
           } else {
-            selectedResult = " - " + selectedResult;
+            selectedResultAutocomplete = " - " + selectedResult;
           };
 
-          document.getElementById("search-autocomplete").placeholder = searchString + selectedResult;
+          document.getElementById("search-autocomplete").placeholder = searchString + selectedResultAutocomplete;
 
           // Output results to results table
           document.getElementById("results").innerHTML = outputList;
@@ -209,62 +212,71 @@
             var outputList = "<tr> <td> </td> </tr>";
             document.getElementById("results").innerHTML = outputList;
           };
+
+          // Allowing enter to go to selected result
+          document.getElementById("search-string").addEventListener("keyup", function(event) {
+            if (selectedResult !== null && event.keyCode === 13) {
+              alert(selectedResult)
+              event.preventDefault();
+              window.location.href = "products.htm?" + encodeURIComponent(selectedResult).replace('%20','+');
+            };
+          });
         });
 
         </script>
 
         <!-- Experimental keyboard controls -->
-        <script>
+        <!-- <script>
 
         var selectedIndex = 0;
 
         document.onkeydown = function(e) {
-          switch (e.keyCode) {
-            case 38:
-            selectedIndex--;
-            break;
-            case 40:
-            selectedIndex++;
-            break;
-          }
+        switch (e.keyCode) {
+        case 38:
+        selectedIndex--;
+        break;
+        case 40:
+        selectedIndex++;
+        break;
+      }
 
-          var table = document.getElementById('results');
-          var cells = table.getElementsByTagName('td')[selectedIndex];
+      var table = document.getElementById('results');
+      var cells = table.getElementsByTagName('td')[selectedIndex];
 
-          // table.getElementsByTagName('td')[0].style.backgroundColor = 'white';
+      // table.getElementsByTagName('td')[0].style.backgroundColor = 'white';
 
-          // cells.focus();
-          // cells.style.backgroundColor = 'green';
-          document.getElementById("search-autocomplete").placeholder = searchString + selectedResult;
-        };
+      // cells.focus();
+      // cells.style.backgroundColor = 'green';
+      document.getElementById("search-autocomplete").placeholder = searchString + selectedResult;
+    };
 
-        </script>
+  </script> -->
 
-      </div>
+</div>
 
-    </section>
+</section>
 
-    <!-- About footer -->
-    <footer class="footer-alt">
-      <div class="content has-text-centered reveal">
-        <br>
-        <a href="about.htm" class="button is-outlined is-small is-rounded modal-button" style="color:grey">
-          <span class="icon">
-            <i class="fas fa-heart"></i>
-          </span>
-          <span>about</span>
-        </a>
-        <br><br>
-      </div>
-    </div>
-  </footer>
+<!-- About footer -->
+<footer class="footer-alt">
+  <div class="content has-text-centered reveal">
+    <br>
+    <a href="about.htm" class="button is-outlined is-small is-rounded modal-button" style="color:grey">
+      <span class="icon">
+        <i class="fas fa-heart"></i>
+      </span>
+      <span>about</span>
+    </a>
+    <br><br>
+  </div>
+</div>
+</footer>
 
-  <script>
-  ScrollReveal().reveal('.reveal', {
-    interval: 80,
-    delay: 100
-  });
-  </script>
+<script>
+ScrollReveal().reveal('.reveal', {
+  interval: 80,
+  delay: 100
+});
+</script>
 
 </body>
 </html>

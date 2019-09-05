@@ -9,6 +9,10 @@
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- Page fade CSS and Javascript-->
+  <link rel="stylesheet" href="css/page-fade.css">
+  <script src="js/page-fade.js"></script>
+
   <!-- Custom favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
@@ -76,6 +80,13 @@
 </head>
 
 <body>
+
+  <!-- Page fade in -->
+  <svg id="fader"></svg>
+  <script>
+  fadeInPage();
+  </script>
+
   <section class="section">
     <div class="container">
 
