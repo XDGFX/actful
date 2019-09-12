@@ -194,7 +194,7 @@
 
             product = uniqueItems[result[value]];
 
-            var outputList = outputList + "<tr> <td class = \"hvr-forward\"> <a href=\"products.htm?"
+            var outputList = outputList + "<tr> <td class = \"hvr-forward\"> <a href=\"products?"
             + encodeURIComponent(product).replace('%20','+') + "\"</a>" + product + "</td> </tr>";
           };
 
@@ -212,7 +212,7 @@
 
           // Add 'no results found' prompt
           if (outputList == "" && searchString.length != 0) {
-            outputList = "<tr> <td class = \"hvr-forward\"> We don't have <i>" + searchString + "</i> yet 😞 </td> </tr> <tr> <td class = \"hvr-forward\"> <a href=\"suggest.htm\">Suggest a new category. </a> </td> </tr>"
+            outputList = "<tr> <td class = \"hvr-forward\"> We don't have <i>" + searchString + "</i> yet 😞 </td> </tr> <tr> <td class = \"hvr-forward\"> <a href=\"suggest\">Suggest a new category. </a> </td> </tr>"
           };
 
 
@@ -230,7 +230,7 @@
           //   if (selectedResult !== null && event.keyCode === 13) {
           //     alert(selectedResult)
           //     event.preventDefault();
-          //     window.location.href = "products.htm?" + encodeURIComponent(selectedResult).replace('%20','+');
+          //     window.location.href = "products?" + encodeURIComponent(selectedResult).replace('%20','+');
           //   };
           // });
         });
@@ -272,7 +272,7 @@
 <footer class="footer-alt">
   <div class="content has-text-centered reveal">
     <br>
-    <a href="about.html" class="button is-outlined is-small is-rounded modal-button" style="color:grey">
+    <a href="about" class="button is-outlined is-small is-rounded modal-button" style="color:grey">
       <span class="icon">
         <i class="fas fa-heart"></i>
       </span>
