@@ -142,7 +142,7 @@
         </div>
 
         <!-- Search coding -->
-        <script type="text/javascript" src="products.json"></script>
+        <script type="text/javascript" src="categories.json"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.5/fuse.min.js"></script>
 
@@ -152,7 +152,7 @@
         var lookup = {};
         var uniqueItems = [];
 
-        for (var item, i = 0; item = products[i++];) {
+        for (var item, i = 0; item = categories[i++];) {
           var category = item.category;
 
           if (!(category in lookup)) {
@@ -186,6 +186,12 @@
 
           // Look through results and create a html string
           for (value in result) {
+
+            // Allow a maximum of 7 results
+            if (value > 6) {
+              break;
+            };
+
             product = uniqueItems[result[value]];
 
             var outputList = outputList + "<tr> <td class = \"hvr-forward\"> <a href=\"products.htm?"
@@ -203,6 +209,12 @@
           };
 
           document.getElementById("search-autocomplete").placeholder = searchString + selectedResultAutocomplete;
+
+          // Add 'no results found' prompt
+          if (outputList == "" && searchString.length != 0) {
+            outputList = "<tr> <td class = \"hvr-forward\"> We don't have <i>" + searchString + "</i> yet 😞 </td> </tr> <tr> <td class = \"hvr-forward\"> <a href=\"suggest.htm\">Suggest a new category. </a> </td> </tr>"
+          };
+
 
           // Output results to results table
           document.getElementById("results").innerHTML = outputList;

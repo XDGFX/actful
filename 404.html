@@ -1,0 +1,133 @@
+---
+permalink: /404.html
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>actful - products</title>
+
+  <!-- Scripts for style, CSS, etc -->
+  <link rel="stylesheet" href="css/bulma.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Page fade CSS and Javascript-->
+  <link rel="stylesheet" href="css/page-fade.css">
+  <script src="js/page-fade.js"></script>
+
+  <!-- Custom favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+  <link rel="manifest" href="icons/site.webmanifest">
+  <link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#00d1b2">
+  <meta name="apple-mobile-web-app-title" content="actful.">
+  <meta name="application-name" content="actful.">
+  <meta name="msapplication-TileColor" content="#ff0000">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Scroll reveal and settings -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script>
+    ScrollReveal({
+      reset: true,
+      scale: 0.95,
+      duration: 1000
+    });
+  </script>
+
+  <!-- Custom font for title -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+
+  <style>
+
+    /* Custom selection colours... ooh fancy! */
+    ::-moz-selection { /* Code for Firefox */
+      color: white;
+      background: #00d1b2;
+    }
+
+    ::selection {
+      color: white;
+      background: #00d1b2;
+    }
+
+    a:link {
+      color: hsl(0, 0%, 21%);
+    }
+
+    a:visited {
+      color: hsl(0, 0%, 21%);
+    }
+
+    a:hover {
+      color: #00d1b2;
+    }
+
+    html.sr .reveal {
+      visibility: hidden;
+    }
+
+    /* Make elements sticky */
+    div.sticky {
+      position: -webkit-sticky; /* Safari */
+      position: sticky;
+      top: 50px;
+      z-index: 1;
+      margin-bottom: -4em
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+    html {
+      display: table;
+    }
+    body {
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Page fade in -->
+  <svg id="fader"></svg>
+  <script>
+    fadeInPage();
+  </script>
+
+  <section class="section">
+    <div class="container" id="body" style="position:relative; top:-10vh">
+
+      <!-- Title -->
+      <h1 style="font-family: 'Montserrat', sans-serif; font-weight: bold; font-size: 500%; text-align: center">
+        oops<font color="#00d1b2">.</font></h1>
+
+        <img src="images/404.svg" style="z-index: -1; position: absolute;" align="middle">
+
+        <br><br><br><br>
+
+        <p style="font-family: 'Montserrat', sans-serif; text-align: center;" class="is-medium is-rounded is-lowercase">We can't find this page anywhere...</p>
+
+        <br>
+
+        <!-- Back button -->
+        <div class ="has-text-centered">
+          <a class="button is-rounded" href="../">
+            <span class="icon">
+              <i class="fas fa-home"></i>
+            </span>
+          </a>
+          </div>
+
+      </div>
+    </section>
+  </body>
+  </html>
