@@ -84,7 +84,7 @@
     margin-bottom: -4em;
     display: table;
   }
-
+  
   </style>
 
   <!-- Getting page from url parameter -->
@@ -115,123 +115,123 @@
   <!-- <svg id="fader"></svg>
   <script>
   fadeInPage();
-  </script> -->
+</script> -->
 
-  <section class="section">
-    <div class="container">
+<section class="section">
+  <div class="container">
 
-      <!-- Title -->
-      <h1 style="font-family: 'Montserrat', sans-serif; font-weight: bold; font-size: 500%; text-align: center">
-        actful<font color="#00d1b2">.</font></h1>
+    <!-- Title -->
+    <h1 class = "reveal" style="font-family: 'Montserrat', sans-serif; font-weight: bold; font-size: 500%; text-align: center">
+      actful<font color="#00d1b2">.</font></h1>
 
-        <!-- Subtitle -->
-        <div class="content has-text-centered">
-          <p style="font-family: 'Montserrat', sans-serif;" class="tag is-medium is-rounded is-lowercase" id="category"></p>
-        </div>
-        <br>
-        <script>
-        document.getElementById("category").innerHTML = category;
-        </script>
+      <!-- Subtitle -->
+      <div class="content has-text-centered reveal">
+        <p style="font-family: 'Montserrat', sans-serif;" class="tag is-medium is-rounded is-lowercase" id="category"></p>
+      </div>
+      <br>
+      <script>
+      document.getElementById("category").innerHTML = category;
+      </script>
 
-        <!-- Loading products and categories database -->
-        <script type="text/javascript" src="products.json"></script>
-        <script type="text/javascript" src="categories.json"></script>
+      <!-- Loading products and categories database -->
+      <script type="text/javascript" src="products.json"></script>
+      <script type="text/javascript" src="categories.json"></script>
 
-        <!-- Back button -->
-        <div class="sticky">
-          <a class="button is-rounded" href="javascript:history.back()" style="width: 36px">
-            <span class="icon">
-              <i class="fas fa-chevron-left"></i>
-            </span>
-          </a>
-        </div>
-
-        <!-- Main products table -->
-        <div class="container" style="max-width: 1000px;">
-          <table class="table is-hoverable is-fullwidth" id="product-table"></table>
-        </div>
-
-        <script>
-
-        if (category != 'categories') { // Any actual product being passed
-
-          var outputList = "<tr>"
-          // Filter out only products under selected category
-          var displayProducts = products.filter(a=>a.category == category);
-
-          // Loop over all products in selected category
-          for (value in displayProducts) {
-
-            var id = displayProducts[value].id;
-            var productName = displayProducts[value].productname;
-            var productBrand = displayProducts[value].brand;
-            var productDescription = displayProducts[value].description;
-            var amazonURL = displayProducts[value].amazonurl;
-            var brandURL = displayProducts[value].brandurl;
-
-            var brandHTML = "";
-            var amazonHTML = "";
-
-            // Brand website link if not blank
-            if (typeof brandURL !== 'undefined') {
-              brandHTML = "<a href=\"http://" + brandURL + "\" class=\"button is-primary is-rounded is-outlined is-small\"> <span class=\"icon\">"
-              + "<i class=\"fas fa-store-alt\"></i> </span> <span>Website</span> </a> &emsp;"
-            }
-
-            // Amazon website link if not blank
-            if (typeof amazonURL !== 'undefined') {
-              amazonHTML = "<a href=\"http://" + amazonURL + "\" class=\"button is-primary is-rounded is-outlined is-small tooltip is-tooltip-right is-tooltip-warning\" data-tooltip="
-              + "\"If you buy using this affiliate link, we get a small commission :)\"> <span class=\"icon\"> <i class=\"fab fa-amazon\"></i> </span> <span>Amazon</span> </a>"
-            }
-
-            // Image HTML just to clean up the code a little
-            var imageHTML = "<br> <figure style=\"height: 256px; width: 256px; overflow: hidden;\">"
-            + "<img class=\"is-rounded\" style=\"border-radius: 50%;\" src=images/products/" + id +".jpg>"
-            + "</figure> <br>"
-
-            // Check for undefined brand
-            if (typeof productBrand !== 'undefined') {
-              productBrand = " by " + productBrand
-            } else {
-              productBrand = "";
-            }
-
-            // Append current product to output list table HTML
-            var outputList = outputList + "<td class = \"product-image reveal\" style=\"vertical-align:middle\">" + imageHTML
-            + " </td> <td class = \"product-list reveal\" style=\"vertical-align:middle; padding-left: 50px\"> <br> <strong>" + productName
-            + "</strong>" + productBrand + "<br> <br>"
-            + productDescription + "<br> <br>" + brandHTML + amazonHTML + "<br> <br> </td> </tr>";
-
-          };
-
-        } else { // No category was selected; therefore display product list instead
-          var outputList = "<tr>"
-
-          categories.sort((a, b) => (a.category > b.category) ? 1 : -1)
-
-          for (i in categories) {
-            var outputList = outputList + "<td class = \"reveal\" style=\"vertical-align:middle\"> <p> <strong> <a href=\"products?"
-            + encodeURIComponent(categories[i].category).replace('%20','+') + "\"</a>" + categories[i].category
-            + "</strong> </p> </td> <td class = \"reveal\" style=\"vertical-align:middle; padding-left: 50px\"> <br>" + categories[i].description
-            + "<br> <br> </td> </tr>";
-          }
-        }
-
-        document.getElementById("product-table").innerHTML = outputList;
-
-        </script>
-
+      <!-- Back button -->
+      <div class="sticky reveal">
+        <a class="button is-rounded" href="../" style="width: 36px">
+          <span class="icon">
+            <i class="fas fa-chevron-left"></i>
+          </span>
+        </a>
       </div>
 
-    </section>
+      <!-- Main products table -->
+      <div class="container" style="max-width: 1000px">
+        <table class="table is-hoverable is-fullwidth" id="product-table"></table>
+      </div>
 
-    <script>
-    ScrollReveal().reveal('.reveal', {
-      interval: 80,
-      delay: 0
-    });
-    </script>
+      <script>
 
-  </body>
+      if (category != 'categories') { // Any actual product being passed
 
-  </html>
+        var outputList = "<tr>"
+        // Filter out only products under selected category
+        var displayProducts = products.filter(a=>a.category == category);
+
+        // Loop over all products in selected category
+        for (value in displayProducts) {
+
+          var id = displayProducts[value].id;
+          var productName = displayProducts[value].productname;
+          var productBrand = displayProducts[value].brand;
+          var productDescription = displayProducts[value].description;
+          var amazonURL = displayProducts[value].amazonurl;
+          var brandURL = displayProducts[value].brandurl;
+
+          var brandHTML = "";
+          var amazonHTML = "";
+
+          // Brand website link if not blank
+          if (typeof brandURL !== 'undefined') {
+            brandHTML = "<a href=\"http://" + brandURL + "\" class=\"button is-primary is-rounded is-outlined is-small\"> <span class=\"icon\">"
+            + "<i class=\"fas fa-store-alt\"></i> </span> <span>Website</span> </a> &emsp;"
+          }
+
+          // Amazon website link if not blank
+          if (typeof amazonURL !== 'undefined') {
+            amazonHTML = "<a href=\"http://" + amazonURL + "\" class=\"button is-primary is-rounded is-outlined is-small tooltip is-tooltip-right is-tooltip-warning\" data-tooltip="
+            + "\"If you buy using this affiliate link, we get a small commission :)\"> <span class=\"icon\"> <i class=\"fab fa-amazon\"></i> </span> <span>Amazon</span> </a>"
+          }
+
+          // Image HTML just to clean up the code a little
+          var imageHTML = "<br> <figure style=\"height: 256px; width: 256px; overflow: hidden;\">"
+          + "<img class=\"is-rounded\" style=\"border-radius: 50%;\" src=images/products/" + id +".jpg>"
+          + "</figure> <br>"
+
+          // Check for undefined brand
+          if (typeof productBrand !== 'undefined') {
+            productBrand = " by " + productBrand
+          } else {
+            productBrand = "";
+          }
+
+          // Append current product to output list table HTML
+          var outputList = outputList + "<td class = \"product-image reveal\" style=\"vertical-align:middle\">" + imageHTML
+          + " </td> <td class = \"product-list reveal\" style=\"vertical-align:middle; padding-left: 50px\"> <br> <strong>" + productName
+          + "</strong>" + productBrand + "<br> <br>"
+          + productDescription + "<br> <br>" + brandHTML + amazonHTML + "<br> <br> </td> </tr>";
+
+        };
+
+      } else { // No category was selected; therefore display product list instead
+        var outputList = "<tr>"
+
+        categories.sort((a, b) => (a.category > b.category) ? 1 : -1)
+
+        for (i in categories) {
+          var outputList = outputList + "<td class = \"reveal\" style=\"vertical-align:middle\"> <p> <strong> <a href=\"products?"
+          + encodeURIComponent(categories[i].category).replace('%20','+') + "\"</a>" + categories[i].category
+          + "</strong> </p> </td> <td class = \"reveal\" style=\"vertical-align:middle; padding-left: 50px\"> <br>" + categories[i].description
+          + "<br> <br> </td> </tr>";
+        }
+      }
+
+      document.getElementById("product-table").innerHTML = outputList;
+
+      </script>
+
+    </div>
+
+  </section>
+
+  <script>
+  ScrollReveal().reveal('.reveal', {
+    interval: 80,
+    delay: 0
+  });
+  </script>
+
+</body>
+
+</html>
