@@ -29,7 +29,7 @@
   <script src="https://unpkg.com/scrollreveal"></script>
   <script>
   ScrollReveal({
-    reset: true,
+    reset: false,
     scale: 0.95,
     duration: 1000
   });
@@ -73,7 +73,8 @@
     position: sticky;
     top: 50px;
     z-index: 1;
-    margin-bottom: -4em
+    margin-bottom: -4em;
+    display: table;
   }
 
   </style>
@@ -81,6 +82,12 @@
   <!-- Getting page from url parameter -->
   <script>
   var category = decodeURIComponent(window.location.search.substring(1).replace('+','%20'));
+
+  // Default category list if no category specified
+  if (category == '') {
+    category = 'categories';
+  };
+
   </script>
 
   <!-- Google AdSense -->
@@ -118,8 +125,9 @@
         document.getElementById("category").innerHTML = category;
         </script>
 
-        <!-- Loading products database -->
+        <!-- Loading products and categories database -->
         <script type="text/javascript" src="products.json"></script>
+        <script type="text/javascript" src="categories.json"></script>
 
         <!-- Back button -->
         <div class="sticky">
@@ -132,46 +140,68 @@
 
         <!-- Main products table -->
         <div class="container" style="max-width: 1000px;">
-          <table class="table is-hoverable" id="product-table"></table>
+          <table class="table is-hoverable is-fullwidth" id="product-table"></table>
         </div>
 
         <script>
 
-        var displayProducts = products.filter(a=>a.category == category);
+        if (category != 'categories') { // Any actual product being passed
 
-        var outputList = "<tr>"
-        for (value in displayProducts) {
+          var outputList = "<tr>"
+          // Filter out only products under selected category
+          var displayProducts = products.filter(a=>a.category == category);
 
-          var id = displayProducts[value].id;
-          var productName = displayProducts[value].productname;
-          var productBrand = displayProducts[value].brand;
-          var productDescription = displayProducts[value].description;
-          var amazonURL = displayProducts[value].amazonurl;
-          var brandURL = displayProducts[value].brandurl;
+          // Loop over all products in selected category
+          for (value in displayProducts) {
 
-          var brandHTML = "";
-          var amazonHTML = "";
+            var id = displayProducts[value].id;
+            var productName = displayProducts[value].productname;
+            var productBrand = displayProducts[value].brand;
+            var productDescription = displayProducts[value].description;
+            var amazonURL = displayProducts[value].amazonurl;
+            var brandURL = displayProducts[value].brandurl;
 
-          if (typeof brandURL !== 'undefined') {
-            brandHTML = "<a href=\"http://" + brandURL + "\" class=\"button is-primary is-rounded is-outlined is-small\"> <span class=\"icon\">"
-            + "<i class=\"fas fa-store-alt\"></i> </span> <span>Website</span> </a> &emsp;"
+            var brandHTML = "";
+            var amazonHTML = "";
+
+            // Brand website link if not blank
+            if (typeof brandURL !== 'undefined') {
+              brandHTML = "<a href=\"http://" + brandURL + "\" class=\"button is-primary is-rounded is-outlined is-small\"> <span class=\"icon\">"
+              + "<i class=\"fas fa-store-alt\"></i> </span> <span>Website</span> </a> &emsp;"
+            }
+
+            // Amazon website link if not blank
+            if (typeof amazonURL !== 'undefined') {
+              amazonHTML = "<a href=\"http://" + amazonURL + "\" class=\"button is-primary is-rounded is-outlined is-small tooltip is-tooltip-right is-tooltip-warning\" data-tooltip="
+              + "\"If you buy using this affiliate link, we get a small commission :)\"> <span class=\"icon\"> <i class=\"fab fa-amazon\"></i> </span> <span>Amazon</span> </a>"
+            }
+
+            // Image HTML just to clean up the code a little
+            var imageHTML = "<br> <figure style=\"height: 256px; width: 256px; overflow: hidden;\">"
+            + "<img class=\"is-rounded\" style=\"border-radius: 50%;\" src=images/products/" + id +".jpg>"
+            + "</figure> <br>"
+
+            // Append current product to output list table HTML
+            var outputList = outputList + "<td class = \"product-image reveal\" style=\"vertical-align:middle\">" + imageHTML
+            + " </td> <td class = \"product-list reveal\" style=\"vertical-align:middle; padding-left: 50px\"> <br> <strong>" + productName
+            + "</strong> by " + productBrand + "<br> <br>"
+            + productDescription + "<br> <br>" + brandHTML + amazonHTML + "<br> <br> </td> </tr>";
+
+          };
+
+        } else { // No category was selected; therefore display product list instead
+          var outputList = "<tr>"
+
+          categories.sort((a, b) => (a.category > b.category) ? 1 : -1)
+
+          for (i in categories) {
+            var outputList = outputList + "<td class = \"reveal\" style=\"vertical-align:middle\"> <p> <strong> <a href=\"products?"
+            + encodeURIComponent(categories[i].category).replace('%20','+') + "\"</a>" + categories[i].category
+            + "</strong> </p> </td> <td class = \"reveal\" style=\"vertical-align:middle; padding-left: 50px\"> <br>" + categories[i].description
+            + "<br> <br> </td> </tr>";
           }
+        }
 
-          if (typeof amazonURL !== 'undefined') {
-            amazonHTML = "<a href=\"http://" + amazonURL + "\" class=\"button is-primary is-rounded is-outlined is-small tooltip is-tooltip-right is-tooltip-warning\" data-tooltip="
-            + "\"If you buy using this affiliate link, we get a small commission :)\"> <span class=\"icon\"> <i class=\"fab fa-amazon\"></i> </span> <span>Amazon</span> </a>"
-          }
-
-          var imageHTML = "<br> <figure style=\"height: 256px; width: 256px; overflow: hidden;\">"
-          + "<img class=\"is-rounded\" style=\"border-radius: 50%;\" src=images/products/" + id +".jpg>"
-          + "</figure> <br>"
-
-          var outputList = outputList + "<td class = \"product-image reveal\" style=\"vertical-align:middle\">" + imageHTML
-          + " </td> <td class = \"product-list reveal\" style=\"vertical-align:middle; padding-left: 50px\"> <br> <strong>" + productName
-          + "</strong> by " + productBrand + "<br> <br>"
-          + productDescription + "<br> <br>" + brandHTML + amazonHTML + "<br> <br> </td> </tr>";
-
-        };
         document.getElementById("product-table").innerHTML = outputList;
 
         </script>

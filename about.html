@@ -28,7 +28,7 @@
   <script src="https://unpkg.com/scrollreveal"></script>
   <script>
   ScrollReveal({
-    reset: true,
+    reset: false,
     scale: 0.95,
     duration: 1000
   });
@@ -72,7 +72,8 @@
     position: sticky;
     top: 50px;
     z-index: 1;
-    margin-bottom: -4em
+    margin-bottom: -4em;
+    display: table;
   }
 
   </style>
@@ -109,10 +110,10 @@
         </div>
 
         <div class="container" style="max-width: 800px;">
+          <br>
           <h2 class="subtitle reveal">Hi!</h1>
-            <br>
 
-            <p class="box box-custom reveal">We're Callum and Georgie!</p>
+            <p class="box-custom reveal">We're Callum and Georgie!</p>
             <br><br>
 
             <div class="columns">
@@ -128,38 +129,39 @@
 
             .right {
               text-align: right;
-              padding-left: 20%;
-              float: right;
-              overflow: auto;
             }
 
-            .left {
-              text-align: left;
-              padding-right: 20%
-            }
-
-            .box {
-              width: 80%;
+            .box-custom {
+              max-width: 80%;
               padding: 0.4em;
+              padding-left: 0.8em;
+              padding-right: 0.8em;
               border-radius: 18px;
               background-color: whitesmoke;
               box-shadow : none;
+              display:inline-block;
+              margin-top: 50px;
+              margin-bottom: 50px ;
+            }
+
+            .subtitle {
+              margin-top: 30px;
+              margin-bottom: 30px;
             }
 
             </style>
             <br>
-            <p class="box reveal left">We decided to make this website after discovering a more sustainable alternative to buying shampoo in a plastic bottle - shampoo in solid bar form like soap!</p>
-            <br><br>
-            <p class="box reveal right">We both wanted to be more sustainable - but we wanted an easy way of finding more sustainable alternatives to products we already used.</p>
-            <br><br>
-            <p class="box reveal left">After some research we realised there was a gap in the market... so here we are!</p>
-            <br><br>
-            <p class="subtitle reveal left">How?</p>
-            <br><br>
-            <p class="box reveal right">We've spent lots of time researching the best brands to use if you're looking for sustainably, plus we already had a load brands we already use and love to recommend!</p>
-            <br><br>
-            <p class="box reveal left">We try to highlight brands we like for a number of reasons; primarily sustainability but also charitable values, better user experience, improved consumer privacy and much more can lead into the selection process!</p>
-            <br><br>
+            <p class="box-custom reveal">We decided to make this website after discovering a more sustainable alternative to buying shampoo in a plastic bottle - shampoo in solid bar form like soap!</p>
+            <div class="right">
+              <p class="box-custom reveal">We both wanted to be more sustainable - but we wanted an easy way of finding more sustainable alternatives to products we already used.</p>
+            </div>
+            <p class="box-custom reveal">After some research we realised there was a gap in the market... so here we are!</p>
+            <h2 class="subtitle reveal">How?</h2>
+            <div class="right">
+              <p class="box-custom reveal">We've spent lots of time researching the best brands to use if you're looking for sustainably, plus we already had a load brands we already use and love to recommend!</p>
+            </div>
+            <p class="box-custom reveal">We try to highlight brands we like for a number of reasons; primarily sustainability but also charitable values, better user experience, improved consumer privacy and much more can lead into the selection process!</p>
+
           </div>
 
         </div>
