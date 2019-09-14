@@ -113,7 +113,8 @@
       // Search function
       $('#search-string').on('input', function() {
 
-        window.scrollTo(0,document.body.scrollHeight); // Scroll to search
+        var searchElement = document.getElementById("search-string");
+        searchElement.scrollIntoView(); // Scroll to search
 
         var searchString = document.getElementById("search-string").value;
         var result = fuse.search(searchString);
@@ -223,7 +224,7 @@
       </a>
     </div>
 
-    <p style="margin-top: -1em; margin-bottom: 1em; color: grey; font-size:12px">© 2019 actful.co.uk</p>
+    <p style="margin-top: -1em; margin-bottom: 1em; color: grey; font-size:12px">© 2019 - actful.co.uk</p>
 
   </div>
 </div>
