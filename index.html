@@ -131,7 +131,7 @@
           product = uniqueItems[result[value]];
 
           var outputList = outputList + "<tr> <td class = \"hvr-forward\"> <a href=\"products?"
-          + encodeURIComponent(product).replace('%20','+') + "\"</a>" + product + "</td> </tr>";
+          + encodeURIComponent(product).replace('%20','+').toLowerCase() + "\"</a>" + product + "</td> </tr>";
         };
 
         // Setting background placeholder to selected result

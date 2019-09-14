@@ -42,7 +42,7 @@
 
   <!-- Getting page from url parameter -->
   <script>
-  var category = decodeURIComponent(window.location.search.substring(1).replace('+','%20'));
+  var category = decodeURIComponent(window.location.search.substring(1).replace('+','%20')).toLowerCase();
 
   // Default category list if no category specified
   if (category == '') {
@@ -93,7 +93,7 @@
 
         var outputList = "<tr>"
         // Filter out only products under selected category
-        var displayProducts = products.filter(a=>a.category == category);
+        var displayProducts = products.filter(a=>a.category.toLowerCase() == category);
 
         // Loop over all products in selected category
         for (value in displayProducts) {
@@ -148,7 +148,7 @@
         // Output all categories in table
         for (i in categories) {
           var outputList = outputList + "<td class = \"reveal\" style=\"vertical-align:middle\"> <p> <strong> <a href=\"products?"
-          + encodeURIComponent(categories[i].category).replace('%20','+') + "\"</a>" + categories[i].category
+          + encodeURIComponent(categories[i].category).replace('%20','+').toLowerCase() + "\"</a>" + categories[i].category
           + "</strong> </p> </td> <td class = \"reveal\" style=\"vertical-align:middle; padding-left: 50px\"> <br>" + categories[i].description
           + "<br> <br> </td> </tr>";
         }
