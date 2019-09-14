@@ -6,12 +6,9 @@
 
   <!-- Scripts for style, CSS, etc -->
   <link rel="stylesheet" href="css/bulma.css">
+  <link rel="stylesheet" href="css/custom.css">
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Page fade CSS and Javascript-->
-  <link rel="stylesheet" href="css/page-fade.css">
-  <script src="js/page-fade.js"></script>
 
   <!-- Custom favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
@@ -25,7 +22,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <!-- Scroll reveal and settings -->
-  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="js/scrollreveal@4.0.5.js"></script>
   <script>
   ScrollReveal({
     reset: false,
@@ -33,9 +30,6 @@
     duration: 1000
   });
   </script>
-
-  <!-- Custom font for title -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
 
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -45,232 +39,165 @@
     enable_page_level_ads: true
   });</script>
 
-  <style>
-
-  /* Custom selection colours... ooh fancy! */
-  ::-moz-selection { /* Code for Firefox */
-    color: white;
-    background: #00d1b2;
-  }
-
-  ::selection {
-    color: white;
-    background: #00d1b2;
-  }
-
-  a:link {
-    color: hsl(0, 0%, 21%);
-  }
-
-  a:visited {
-    color: grey;
-  }
-
-  a:hover {
-    color: #00d1b2;
-  }
-
-  html.sr .reveal{
-    visibility: hidden;
-  }
-
-  /* Hover animation for results */
-  .hvr-forward {
-    display: inline-block;
-    vertical-align: middle;
-    -webkit-transform: perspective(1px) translateZ(0);
-    transform: perspective(1px) translateZ(0);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-    -webkit-transition-property: transform;
-    transition-property: transform;
-  }
-  .hvr-forward:hover, .hvr-forward:focus, .hvr-forward:active {
-    -webkit-transform: translateX(8px);
-    transform: translateX(8px);
-  }
-
-  /* Setting height of page to 100% so background colour can be changed down the line (dark mode anyone?) */
-  body {
-    height: 100%;
-  }
-
-  html {
-    height: 100%;
-  }
-
-  /* Setting footer position and colours */
-  .footer-alt {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: white;
-  }
-
-</style>
 </head>
 
 <body>
-
-  <!-- Page fade in -->
-  <!-- <svg id="fader"></svg>
-  <script>
-  fadeInPage();
-  </script> -->
 
   <section class="section">
     <div class="container">
 
       <!-- Title -->
-      <h1 class = "reveal" style="font-family: 'Montserrat', sans-serif; font-weight: bold; font-size: 1000%; text-align: center; padding-top: 16vh">
-        actful<font color="#00d1b2">.</font></h1>
+      <div class="has-text-centered">
+        <img class = "reveal has-text-centered" src="images/actful-logo.svg" style="padding-top: 16vh; padding-bottom: 10px; max-width: 500px">
+      </div>
 
-        <!-- Subtitle -->
-        <p class="subtitle reveal" style="text-align: center; margin-top: -3%; margin-bottom: 3%;">
-          alternative products which promote a <strong>sustainable</strong> future for all.
-        </p>
+      <!-- Subtitle -->
+      <p class="subtitle reveal" style="text-align: center;">
+        alternative products which promote a <strong>sustainable</strong> future for all.
+      </p>
 
-        <!-- Search -->
-        <div class="container" style="max-width: 600px;">
-          <div class="control has-icons-left">
-            <input class="input is-rounded" style = "z-index: 1; position: absolute; top: 0;  bottom: 0; left: 0;  right: 0; background-color: transparent;" id = "search-string" placeholder = "search for a product..." autofocus>
-            <input class="input is-rounded" style = "z-index: 0; position: absolute; top: 0;  bottom: 0; left: 0;  right: 0; background-color: transparent;" id = "search-autocomplete" disabled>
-            <br>
-            <span class="icon is-small is-left">
-              <i class="fas fa-search"></i>
-            </span>
-          </div>
-        </div>
-
-        <!-- Search results -->
-        <div class="container" style="max-width: 500px;">
+      <!-- Search -->
+      <div class="container" style="max-width: 600px;">
+        <div class="control has-icons-left search-sticky">
+          <input class="input is-rounded" style = "z-index: 1; position: absolute; top: 0;  bottom: 0; left: 0;  right: 0; background-color: transparent;" id = "search-string" placeholder = "search for a product..." autofocus>
+          <input class="input is-rounded" style = "z-index: 0; position: absolute; top: 0;  bottom: 0; left: 0;  right: 0; background-color: transparent;" id = "search-autocomplete" disabled>
           <br>
-          <table id="results" style="font-size: 18px; width: 100%"></table>
+          <span class="icon is-small is-left">
+            <i class="fas fa-search"></i>
+          </span>
         </div>
+      </div>
 
-        <!-- Search coding -->
-        <script type="text/javascript" src="categories.json"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.5/fuse.min.js"></script>
+      <!-- Search results -->
+      <div class="container" style="max-width: 500px; padding-bottom: 81px">
+        <br>
+        <table id="results" style="font-size: 18px; width: 100%"></table>
+      </div>
 
-        <script>
+      <!-- Search coding -->
+      <script type="text/javascript" src="categories.json"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.5/fuse.min.js"></script>
 
-        // Finding all unique categories from JSON
-        var lookup = {};
-        var uniqueItems = [];
+      <script>
 
-        for (var item, i = 0; item = categories[i++];) {
-          var category = item.category;
+      // Finding all unique categories from JSON
+      var lookup = {};
+      var uniqueItems = [];
 
-          if (!(category in lookup)) {
-            lookup[category] = 1;
-            uniqueItems.push(category);
-          }
+      for (var item, i = 0; item = categories[i++];) {
+        var category = item.category;
+
+        if (!(category in lookup)) {
+          lookup[category] = 1;
+          uniqueItems.push(category);
         }
-
-        // Options for Fuse
-        var options = {
-          shouldSort: true,
-          tokenize: false,
-          findAllMatches: false,
-          threshold: 0.5,
-          location: 0,
-          distance: 100,
-          maxPatternLength: 32,
-          minMatchCharLength: 2,
-        };
-
-        // Create Fuse search
-        var fuse = new Fuse(uniqueItems, options);
-        var result = {};
-
-        // Search function
-        $('#search-string').on('input', function() {
-          var searchString = document.getElementById("search-string").value;
-          var result = fuse.search(searchString);
-
-          var outputList = "";
-
-          // Look through results and create a html string
-          for (value in result) {
-
-            // Allow a maximum of 7 results
-            if (value > 6) {
-              break;
-            };
-
-            product = uniqueItems[result[value]];
-
-            var outputList = outputList + "<tr> <td class = \"hvr-forward\"> <a href=\"products?"
-            + encodeURIComponent(product).replace('%20','+') + "\"</a>" + product + "</td> </tr>";
-          };
-
-          // Setting background placeholder to selected result
-          var selectedIndex = 0;
-          var selectedResult = uniqueItems[result[selectedIndex]];
-
-          if (selectedResult == null) {
-            selectedResultAutocomplete = "";
-          } else {
-            selectedResultAutocomplete = " - " + selectedResult;
-          };
-
-          document.getElementById("search-autocomplete").placeholder = searchString + selectedResultAutocomplete;
-
-          // Add 'no results found' prompt
-          if (outputList == "" && searchString.length != 0) {
-            outputList = "<tr> <td class = \"hvr-forward\"> We don't have <i>" + searchString + "</i> yet 😞 </td> </tr> <tr> <td class = \"hvr-forward\"> <a href=\"suggest\">Suggest a new category. </a> </td> </tr>"
-          };
-
-
-          // Output results to results table
-          document.getElementById("results").innerHTML = outputList;
-
-          // Clearing table if searchbox is empty
-          if(searchString.length == 0) {
-            var outputList = "<tr> <td> </td> </tr>";
-            document.getElementById("results").innerHTML = outputList;
-          };
-
-          // Allowing enter to go to selected result
-          // document.getElementById("search-string").addEventListener("keyup", function(event) {
-          //   if (selectedResult !== null && event.keyCode === 13) {
-          //     alert(selectedResult)
-          //     event.preventDefault();
-          //     window.location.href = "products?" + encodeURIComponent(selectedResult).replace('%20','+');
-          //   };
-          // });
-        });
-
-        </script>
-
-        <!-- Experimental keyboard controls -->
-        <!-- <script>
-
-        var selectedIndex = 0;
-
-        document.onkeydown = function(e) {
-        switch (e.keyCode) {
-        case 38:
-        selectedIndex--;
-        break;
-        case 40:
-        selectedIndex++;
-        break;
       }
 
-      var table = document.getElementById('results');
-      var cells = table.getElementsByTagName('td')[selectedIndex];
+      // Options for Fuse
+      var options = {
+        shouldSort: true,
+        tokenize: false,
+        findAllMatches: false,
+        threshold: 0.5,
+        location: 0,
+        distance: 100,
+        maxPatternLength: 32,
+        minMatchCharLength: 2,
+      };
 
-      // table.getElementsByTagName('td')[0].style.backgroundColor = 'white';
+      // Create Fuse search
+      var fuse = new Fuse(uniqueItems, options);
+      var result = {};
 
-      // cells.focus();
-      // cells.style.backgroundColor = 'green';
-      document.getElementById("search-autocomplete").placeholder = searchString + selectedResult;
-    };
+      // Search function
+      $('#search-string').on('input', function() {
 
-  </script> -->
+        window.scrollTo(0,document.body.scrollHeight); // Scroll to search
+
+        var searchString = document.getElementById("search-string").value;
+        var result = fuse.search(searchString);
+
+        var outputList = "";
+
+        // Look through results and create a html string
+        for (value in result) {
+
+          // Allow a maximum of 7 results
+          if (value > 6) {
+            break;
+          };
+
+          product = uniqueItems[result[value]];
+
+          var outputList = outputList + "<tr> <td class = \"hvr-forward\"> <a href=\"products?"
+          + encodeURIComponent(product).replace('%20','+') + "\"</a>" + product + "</td> </tr>";
+        };
+
+        // Setting background placeholder to selected result
+        var selectedIndex = 0;
+        var selectedResult = uniqueItems[result[selectedIndex]];
+
+        if (selectedResult == null) {
+          selectedResultAutocomplete = "";
+        } else {
+          selectedResultAutocomplete = " - " + selectedResult;
+        };
+
+        document.getElementById("search-autocomplete").placeholder = searchString + selectedResultAutocomplete;
+
+        // Add 'no results found' prompt
+        if (outputList == "" && searchString.length != 0) {
+          outputList = "<tr> <td class = \"hvr-forward\"> We don't have <i>" + searchString + "</i> yet 😞 </td> </tr> <tr> <td class = \"hvr-forward\"> <a href=\"suggest\">Suggest a new category. </a> </td> </tr>"
+        };
+
+        // Output results to results table
+        document.getElementById("results").innerHTML = outputList;
+
+        // Clearing table if searchbox is empty
+        if(searchString.length == 0) {
+          var outputList = "<tr> <td> </td> </tr>";
+          document.getElementById("results").innerHTML = outputList;
+        };
+
+        // Allowing enter to go to selected result
+        // document.getElementById("search-string").addEventListener("keyup", function(event) {
+        //   if (selectedResult !== null && event.keyCode === 13) {
+        //     alert(selectedResult)
+        //     event.preventDefault();
+        //     window.location.href = "products?" + encodeURIComponent(selectedResult).replace('%20','+');
+        //   };
+        // });
+      });
+
+      </script>
+
+      <!-- Experimental keyboard controls -->
+      <!-- <script>
+
+      var selectedIndex = 0;
+
+      document.onkeydown = function(e) {
+      switch (e.keyCode) {
+      case 38:
+      selectedIndex--;
+      break;
+      case 40:
+      selectedIndex++;
+      break;
+    }
+
+    var table = document.getElementById('results');
+    var cells = table.getElementsByTagName('td')[selectedIndex];
+
+    // table.getElementsByTagName('td')[0].style.backgroundColor = 'white';
+
+    // cells.focus();
+    // cells.style.backgroundColor = 'green';
+    document.getElementById("search-autocomplete").placeholder = searchString + selectedResult;
+  };
+
+</script> -->
 
 </div>
 
@@ -279,26 +206,26 @@
 <!-- About footer -->
 <footer class="footer-alt has-text-centered">
   <div class="content reveal">
-  <br>
-<div class="buttons has-addons is-centered">
-  <a href="about" class="button is-outlined is-small is-rounded modal-button" style="color:grey">
-    <span class="icon">
-      <i class="fas fa-heart"></i>
-    </span>
-    <span>about</span>
-  </a>
+    <br>
+    <div class="buttons has-addons is-centered">
+      <a href="about" class="button is-outlined is-small is-rounded modal-button" style="color:grey">
+        <span class="icon">
+          <i class="fas fa-heart"></i>
+        </span>
+        <span>about</span>
+      </a>
 
-  <a href="products" class="button is-outlined is-small is-rounded modal-button" style="color:grey">
-    <span class="icon">
-      <i class="fas fa-list-ul"></i>
-    </span>
-    <span>all categories</span>
-  </a>
-</div>
+      <a href="products" class="button is-outlined is-small is-rounded modal-button" style="color:grey">
+        <span class="icon">
+          <i class="fas fa-list-ul"></i>
+        </span>
+        <span>all categories</span>
+      </a>
+    </div>
 
-  <p style="margin-top: -1em; margin-bottom: 1em; color: grey; font-size:12px">© 2019 actful.co.uk</p>
+    <p style="margin-top: -1em; margin-bottom: 1em; color: grey; font-size:12px">© 2019 actful.co.uk</p>
 
-</div>
+  </div>
 </div>
 </footer>
 

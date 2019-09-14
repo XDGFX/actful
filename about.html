@@ -6,12 +6,9 @@
 
   <!-- Scripts for style, CSS, etc -->
   <link rel="stylesheet" href="css/bulma.css">
+  <link rel="stylesheet" href="css/custom.css">
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Page fade CSS and Javascript-->
-  <link rel="stylesheet" href="css/page-fade.css">
-  <script src="js/page-fade.js"></script>
 
   <!-- Custom favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
@@ -25,7 +22,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <!-- Scroll reveal and settings -->
-  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="js/scrollreveal@4.0.5.js"></script>
   <script>
   ScrollReveal({
     reset: false,
@@ -34,144 +31,94 @@
   });
   </script>
 
-  <!-- Custom font for title -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
-
+  <!-- Custom CSS for this page only -->
   <style>
 
-  /* Custom selection colours... ooh fancy! */
-  ::-moz-selection { /* Code for Firefox */
-    color: white;
-    background: #00d1b2;
+  .right {
+    text-align: right;
   }
 
-  ::selection {
-    color: white;
-    background: #00d1b2;
+  .box-custom {
+    max-width: 80%;
+    padding: 0.4em;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+    border-radius: 18px;
+    background-color: whitesmoke;
+    box-shadow : none;
+    display:inline-block;
+    margin-top: 50px;
+    margin-bottom: 50px ;
   }
 
-  a:link {
-    color: hsl(0, 0%, 21%);
-  }
-
-  a:visited {
-    color: hsl(0, 0%, 21%);
-  }
-
-  a:hover {
-    color: #00d1b2;
-  }
-
-  html.sr .reveal {
-    visibility: hidden;
-  }
-
-  /* Make elements sticky */
-  div.sticky {
-    position: -webkit-sticky; /* Safari */
-    position: sticky;
-    top: 50px;
-    z-index: 1;
-    margin-bottom: -4em;
-    display: table;
+  .subtitle {
+    margin-top: 30px;
+    margin-bottom: 30px;
   }
 
   </style>
-
+  
 </head>
-
 <body>
-
-  <!-- Page fade in -->
-  <!-- <svg id="fader"></svg>
-  <script>
-  fadeInPage();
-  </script> -->
-
   <section class="section">
     <div class="container">
 
       <!-- Title -->
-      <h1 class = "reveal" style="font-family: 'Montserrat', sans-serif; font-weight: bold; font-size: 500%; text-align: center">
-        actful<font color="#00d1b2">.</font></h1>
+      <div class="has-text-centered">
+        <img class = "reveal has-text-centered" src="images/actful-logo.svg" style="padding-top: 4vh; padding-bottom: 10px; max-width: 250px">
+      </div>
 
-        <!-- Subtitle -->
-        <div class="content has-text-centered reveal">
-          <p style="font-family: 'Montserrat', sans-serif;" class="tag is-medium is-rounded is-lowercase">about</p>
-        </div>
+      <!-- Subtitle -->
+      <div class="content has-text-centered reveal">
+        <p style="font-family: 'Montserrat', sans-serif;" class="tag is-medium is-rounded is-lowercase">about</p>
+      </div>
+      <br>
+
+      <div class="sticky reveal">
+        <a class="button is-rounded" href="../" style="width: 36px">
+          <span class="icon">
+            <i class="fas fa-chevron-left"></i>
+          </span>
+        </a>
+      </div>
+
+      <div class="container" style="max-width: 800px;">
         <br>
+        <h2 class="subtitle reveal">Hi!</h1>
 
-        <div class="sticky reveal">
-          <a class="button is-rounded" href="../" style="width: 36px">
-            <span class="icon">
-              <i class="fas fa-chevron-left"></i>
-            </span>
-          </a>
-        </div>
+          <p class="box-custom reveal">We're Callum and Georgie!</p>
+          <br><br>
 
-        <div class="container" style="max-width: 800px;">
-          <br>
-          <h2 class="subtitle reveal">Hi!</h1>
-
-            <p class="box-custom reveal">We're Callum and Georgie!</p>
-            <br><br>
-
-            <div class="columns">
-              <div class="column has-text-centered reveal">
-                <img src='images/avatar-callum.svg'>
-              </div>
-              <div class="column has-text-centered reveal">
-                <img src='images/avatar-georgie.svg'>
-              </div>
+          <div class="columns">
+            <div class="column has-text-centered reveal">
+              <img src='images/avatar-callum.svg'>
             </div>
-
-            <style>
-
-            .right {
-              text-align: right;
-            }
-
-            .box-custom {
-              max-width: 80%;
-              padding: 0.4em;
-              padding-left: 0.8em;
-              padding-right: 0.8em;
-              border-radius: 18px;
-              background-color: whitesmoke;
-              box-shadow : none;
-              display:inline-block;
-              margin-top: 50px;
-              margin-bottom: 50px ;
-            }
-
-            .subtitle {
-              margin-top: 30px;
-              margin-bottom: 30px;
-            }
-
-            </style>
-            <br>
-            <p class="box-custom reveal">We decided to make this website after discovering a more sustainable alternative to buying shampoo in a plastic bottle - shampoo in solid bar form like soap!</p>
-            <div class="right">
-              <p class="box-custom reveal">We both wanted to be more sustainable - but we wanted an easy way of finding more sustainable alternatives to products we already used.</p>
+            <div class="column has-text-centered reveal">
+              <img src='images/avatar-georgie.svg'>
             </div>
-            <p class="box-custom reveal">After some research we realised there was a gap in the market... so here we are!</p>
-            <h2 class="subtitle reveal">How?</h2>
-            <div class="right">
-              <p class="box-custom reveal">We've spent lots of time researching the best brands to use if you're looking for sustainably, plus we already had a load brands we already use and love to recommend!</p>
-            </div>
-            <p class="box-custom reveal">We try to highlight brands we like for a number of reasons; primarily sustainability but also charitable values, better user experience, improved consumer privacy and much more can lead into the selection process!</p>
-
           </div>
 
-        </div>
-      </section>
+          <br>
+          <p class="box-custom reveal">We decided to make this website after discovering a more sustainable alternative to buying shampoo in a plastic bottle - shampoo in solid bar form like soap!</p>
+          <div class="right">
+            <p class="box-custom reveal">We both wanted to be more sustainable - but we wanted an easy way of finding more sustainable alternatives to products we already used.</p>
+          </div>
+          <p class="box-custom reveal">After some research we realised there was a gap in the market... so here we are!</p>
+          <h2 class="subtitle reveal">How?</h2>
+          <div class="right">
+            <p class="box-custom reveal">We've spent lots of time researching the best brands to use if you're looking for sustainably, plus we already had a load brands we already use and love to recommend!</p>
+          </div>
+          <p class="box-custom reveal">We try to highlight brands we like for a number of reasons; primarily sustainability but also charitable values, better user experience, improved consumer privacy and much more can lead into the selection process!</p>
 
-      <script>
-      ScrollReveal().reveal('.reveal', {
-        interval: 80,
-        delay: 0
-      });
-      </script>
-    </body>
-    </html>
+        </div>
+      </div>
+    </section>
+
+    <script>
+    ScrollReveal().reveal('.reveal', {
+      interval: 80,
+      delay: 0
+    });
+    </script>
+  </body>
+  </html>

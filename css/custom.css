@@ -1,0 +1,70 @@
+/* Custom selection colours... ooh fancy! */
+::-moz-selection { /* Code for Firefox */
+  color: white;
+  background: #00d1b2;
+}
+
+::selection {
+  color: white;
+  background: #00d1b2;
+}
+
+/* Custom link colours */
+a:link {
+  color: hsl(0, 0%, 21%);
+}
+
+a:visited {
+  color: grey;
+}
+
+a:hover {
+  color: #00d1b2;
+}
+
+/* Fix for scroll reveal */
+html.sr .reveal{
+  visibility: hidden;
+}
+
+/* Hover animation for results */
+.hvr-forward {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.hvr-forward:hover, .hvr-forward:focus, .hvr-forward:active {
+  -webkit-transform: translateX(8px);
+  transform: translateX(8px);
+}
+
+/* Setting footer position and colours */
+.footer-alt {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+}
+
+/* Make search bar sticky */
+div.search-sticky {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 50px;
+}
+
+/* Make elements sticky */
+div.sticky {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 50px;
+  z-index: 1;
+  margin-bottom: -4em;
+  display: table;
+}

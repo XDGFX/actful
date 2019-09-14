@@ -7,12 +7,9 @@
   <!-- Scripts for style, CSS, etc -->
   <link rel="stylesheet" href="css/bulma.css">
   <link rel="stylesheet" href="css/bulma-tooltip.min.css">
+  <link rel="stylesheet" href="css/custom.css">
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Page fade CSS and Javascript-->
-  <link rel="stylesheet" href="css/page-fade.css">
-  <script src="js/page-fade.js"></script>
 
   <!-- Custom favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
@@ -26,7 +23,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <!-- Scroll reveal and settings -->
-  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="js/scrollreveal@4.0.5.js"></script>
   <script>
   ScrollReveal({
     reset: false,
@@ -34,9 +31,6 @@
     duration: 1000
   });
   </script>
-
-  <!-- Custom font for title -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
 
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -46,47 +40,6 @@
     enable_page_level_ads: true
   });</script>
 
-  <style>
-
-  /* Custom selection colours... ooh fancy! */
-  ::-moz-selection { /* Code for Firefox */
-    color: white;
-    background: #00d1b2;
-  }
-
-  ::selection {
-    color: white;
-    background: #00d1b2;
-  }
-
-  a:link {
-    color: hsl(0, 0%, 21%);
-  }
-
-  a:visited {
-    color: hsl(0, 0%, 21%);
-  }
-
-  a:hover {
-    color: #00d1b2;
-  }
-
-  html.sr .reveal {
-    visibility: hidden;
-  }
-
-  /* Make elements sticky */
-  div.sticky {
-    position: -webkit-sticky; /* Safari */
-    position: sticky;
-    top: 50px;
-    z-index: 1;
-    margin-bottom: -4em;
-    display: table;
-  }
-  
-  </style>
-
   <!-- Getting page from url parameter -->
   <script>
   var category = decodeURIComponent(window.location.search.substring(1).replace('+','%20'));
@@ -95,34 +48,17 @@
   if (category == '') {
     category = 'categories';
   };
-
   </script>
-
-  <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-2845131833000200",
-    enable_page_level_ads: true
-  });
-</script>
-
 </head>
 
 <body>
+  <section class="section">
+    <div class="container">
 
-  <!-- Page fade in -->
-  <!-- <svg id="fader"></svg>
-  <script>
-  fadeInPage();
-</script> -->
-
-<section class="section">
-  <div class="container">
-
-    <!-- Title -->
-    <h1 class = "reveal" style="font-family: 'Montserrat', sans-serif; font-weight: bold; font-size: 500%; text-align: center">
-      actful<font color="#00d1b2">.</font></h1>
+      <!-- Title -->
+      <div class="has-text-centered">
+        <img class = "reveal has-text-centered" src="images/actful-logo.svg" style="padding-top: 4vh; padding-bottom: 10px; max-width: 250px">
+      </div>
 
       <!-- Subtitle -->
       <div class="content has-text-centered reveal">
@@ -207,8 +143,9 @@
       } else { // No category was selected; therefore display product list instead
         var outputList = "<tr>"
 
-        categories.sort((a, b) => (a.category > b.category) ? 1 : -1)
+        categories.sort((a, b) => (a.category > b.category) ? 1 : -1) // Sort in alphabetical order
 
+        // Output all categories in table
         for (i in categories) {
           var outputList = outputList + "<td class = \"reveal\" style=\"vertical-align:middle\"> <p> <strong> <a href=\"products?"
           + encodeURIComponent(categories[i].category).replace('%20','+') + "\"</a>" + categories[i].category
@@ -220,9 +157,7 @@
       document.getElementById("product-table").innerHTML = outputList;
 
       </script>
-
     </div>
-
   </section>
 
   <script>
@@ -230,8 +165,7 @@
     interval: 80,
     delay: 0
   });
-  </script>
+</script>
 
 </body>
-
 </html>
